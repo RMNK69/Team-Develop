@@ -20,7 +20,7 @@ fetch('../data.json')
         const album = data.albums.find(album => album.id === albumId);
 
         if (album) {
-            console.log(album);
+            console.log('Знайдений альбом:', album);
             albumCoverElement.src = album.cover;
             albumTitleElement.textContent = album.title;
             albumArtistElement.textContent = album.artist;
@@ -28,9 +28,12 @@ fetch('../data.json')
             albumTrackCountElement.textContent = album.tracks.length;
 
             const tracksInAlbum = data.tracks.filter(track => album.tracks.includes(track.id));
+            console.log('Треки в альбомі (до сортування):', tracksInAlbum);
 
             // Сортування треків за позицією
             tracksInAlbum.sort((a, b) => a.position - b.position);
+            console.log('Треки в альбомі (після сортування):', tracksInAlbum);
+            currentAlbumTracks = tracksInAlbum; // Ініціалізація currentAlbumTracks тут
 
             tracksInAlbum.forEach(track => {
                 const listItem = document.createElement('li');
@@ -38,8 +41,9 @@ fetch('../data.json')
                 const trackButton = document.createElement('button');
                 trackButton.classList.add('track-item-button');
                 trackButton.addEventListener('click', () => {
+                    console.log('Натиснуто трек:', track.title, track);
                     loadTrack(track);
-                    setActiveTrack(trackButton); // Додаємо виділення активного треку
+                    setActiveTrack(trackButton);
                 });
                 trackButton.innerHTML = `
                     <div class="track-info">
@@ -51,8 +55,8 @@ fetch('../data.json')
             });
 
             if (tracksInAlbum.length > 0) {
+                console.log('Завантажуємо перший трек:', tracksInAlbum[0]);
                 loadTrack(tracksInAlbum[0]);
-                // Виділяємо перший трек як активний при завантаженні
                 const firstTrackButton = albumTracklistElement.querySelector('.track-item-button');
                 if (firstTrackButton) {
                     setActiveTrack(firstTrackButton);
@@ -79,7 +83,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const durationDisplay = document.getElementById('duration');
     const volumeSliderContainer = document.getElementById('volumeSliderContainer');
     const volumeSlider = document.getElementById('volumeSlider');
-    const trackInfoDisplay = document.querySelector('.progress-bar-wrapper h3'); // Змінюємо селектор
+    const trackInfoDisplay = document.getElementById('track-info-display');
     const likeButton = document.getElementById('like');
     const repeatButton = document.getElementById('repeat');
     let currentTrackIndex = 0;
@@ -88,8 +92,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let isDraggingVolume = false;
     let isLiked = false;
     let isRepeating = false;
-    let currentAlbumTracks = [];
-    let activeTrackButton = null; // Зберігаємо посилання на активну кнопку треку
+    let currentAlbumTracks = []; // Оголошення тут прибрано, ініціалізація відбувається після fetch
 
     // Функція для форматування часу (MM:SS)
     function formatTime(seconds) {
@@ -98,28 +101,9 @@ document.addEventListener('DOMContentLoaded', () => {
         return `${minutes}:${remainingSeconds}`;
     }
 
-    // Завантаження треків альбому
-    fetch('../data.json')
-        .then(response => response.json())
-        .then(data => {
-            const albumId = getUrlParam('albumId');
-            const album = data.albums.find(album => album.id === albumId);
-            if (album) {
-                currentAlbumTracks = data.tracks.filter(track => album.tracks.includes(track.id));
-                if (currentAlbumTracks.length > 0) {
-                    loadTrack(currentAlbumTracks[0]);
-                    // Виділяємо перший трек як активний при завантаженні
-                    const firstTrackButton = albumTracklistElement.querySelector('.track-item-button');
-                    if (firstTrackButton) {
-                        setActiveTrack(firstTrackButton);
-                    }
-                }
-            }
-        });
-
     // Завантаження треку в плеєр
     function loadTrack(track) {
-        console.log('Завантажується трек:', track); // Додайте цей лог
+        console.log('Функція loadTrack викликана з треком:', track);
         audioPlayer.src = track.audioSrc || '';
         if (trackInfoDisplay) {
             trackInfoDisplay.textContent = `${track.artist} - ${track.title}`;
@@ -131,11 +115,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Функція для встановлення візуального відображення активного треку
     function setActiveTrack(button) {
-        if (activeTrackButton) {
-            activeTrackButton.classList.remove('active'); // Видаляємо клас з попередньої активної кнопки
-        }
-        activeTrackButton = button;
-        activeTrackButton.classList.add('active'); // Додаємо клас до поточної активної кнопки
+        const trackButtons = document.querySelectorAll('.track-item-button');
+        trackButtons.forEach(btn => btn.classList.remove('active'));
+        button.classList.add('active');
     }
 
     // Відтворення/пауза
@@ -152,32 +134,38 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Попередній трек
     prevTrackButton.addEventListener('click', () => {
-        currentTrackIndex--;
-        if (currentTrackIndex < 0) {
-            currentTrackIndex = currentAlbumTracks.length - 1;
+        if (currentAlbumTracks.length > 0) {
+            currentTrackIndex--;
+            if (currentTrackIndex < 0) {
+                currentTrackIndex = currentAlbumTracks.length - 1;
+            }
+            const track = currentAlbumTracks[currentTrackIndex];
+            console.log('Попередній трек:', track);
+            loadTrack(track);
+            const trackButton = albumTracklistElement.querySelectorAll('.track-item-button')[currentTrackIndex];
+            if (trackButton) {
+                setActiveTrack(trackButton);
+            }
+            if (isPlaying) audioPlayer.play();
         }
-        loadTrack(currentAlbumTracks[currentTrackIndex]);
-        // Знаходимо відповідну кнопку в треклісті та робимо її активною
-        const trackButton = albumTracklistElement.querySelectorAll('.track-item-button')[currentTrackIndex];
-        if (trackButton) {
-            setActiveTrack(trackButton);
-        }
-        if (isPlaying) audioPlayer.play();
     });
 
     // Наступний трек
     nextTrackButton.addEventListener('click', () => {
-        currentTrackIndex++;
-        if (currentTrackIndex >= currentAlbumTracks.length) {
-            currentTrackIndex = 0;
+        if (currentAlbumTracks.length > 0) {
+            currentTrackIndex++;
+            if (currentTrackIndex >= currentAlbumTracks.length) {
+                currentTrackIndex = 0;
+            }
+            const track = currentAlbumTracks[currentTrackIndex];
+            console.log('Наступний трек:', track);
+            loadTrack(track);
+            const trackButton = albumTracklistElement.querySelectorAll('.track-item-button')[currentTrackIndex];
+            if (trackButton) {
+                setActiveTrack(trackButton);
+            }
+            if (isPlaying) audioPlayer.play();
         }
-        loadTrack(currentAlbumTracks[currentTrackIndex]);
-        // Знаходимо відповідну кнопку в треклісті та робимо її активною
-        const trackButton = albumTracklistElement.querySelectorAll('.track-item-button')[currentTrackIndex];
-        if (trackButton) {
-            setActiveTrack(trackButton);
-        }
-        if (isPlaying) audioPlayer.play();
     });
 
     // Оновлення прогрес-бару

@@ -1,0 +1,245 @@
+{
+  "tracks": [
+    {
+      "id": "hexagram",
+      "title": "Hexagram",
+      "artist": "Deftones",
+      "cover": "../Published_Content/Deftones/Deftones_Album/Deftones_Deftones_album_cover.jpg",
+      "albumId": "deftones_album",
+      "audioSrc": "../Published_Content/Deftones/Deftones_Album/Deftones_Hexagram.mp3",
+      "position": 1
+    },
+    {
+      "id": "minerva",
+      "title": "Minerva",
+      "artist": "Deftones",
+      "cover": "../Published_Content/Deftones/Deftones_Album/Deftones_Deftones_album_cover.jpg",
+      "albumId": "deftones_album",
+      "audioSrc": "../Published_Content/Deftones/Deftones_Album/Deftones_Minerva.mp3",
+      "position": 2
+    },
+    {
+      "id": "needles_and_pins",
+      "title": "Needles and Pins",
+      "artist": "Deftones",
+      "cover": "../Published_Content/Deftones/Deftones_Album/Deftones_Deftones_album_cover.jpg",
+      "albumId": "deftones_album",
+      "audioSrc": "../Published_Content/Deftones/Deftones_Album/Deftones_Needles_and_Pins.mp3",
+      "position": 3
+    },
+    {
+      "id": "deathblow",
+      "title": "Deathblow",
+      "artist": "Deftones",
+      "cover": "../Published_Content/Deftones/Deftones_Album/Deftones_Deftones_album_cover.jpg",
+      "albumId": "deftones_album",
+      "audioSrc": "../Published_Content/Deftones/Deftones_Album/Deftones_Deathblow.mp3",
+      "position": 4
+    },
+    {
+      "id": "when_girls_telephone_boys",
+      "title": "When Girls Telephone Boys",
+      "artist": "Deftones",
+      "cover": "../Published_Content/Deftones/Deftones_Album/Deftones_Deftones_album_cover.jpg",
+      "albumId": "deftones_album",
+      "audioSrc": "../Published_Content/Deftones/Deftones_Album/Deftones_When_Girls_Telephone_Boys.mp3",
+      "position": 5
+    },
+    {
+      "id": "battle_axe",
+      "title": "Battle-axe",
+      "artist": "Deftones",
+      "cover": "../Published_Content/Deftones/Deftones_Album/Deftones_Deftones_album_cover.jpg",
+      "albumId": "deftones_album",
+      "audioSrc": "../Published_Content/Deftones/Deftones_Album/Deftones_Battle-axe.mp3",
+      "position": 6
+    },
+    {
+      "id": "lucky_you",
+      "title": "Lucky You",
+      "artist": "Deftones",
+      "cover": "../Published_Content/Deftones/Deftones_Album/Deftones_Deftones_album_cover.jpg",
+      "albumId": "deftones_album",
+      "audioSrc": "../Published_Content/Deftones/Deftones_Album/Deftones_Lucky_You.mp3",
+      "position": 7
+    },
+    {
+      "id": "bloody_cape",
+      "title": "Bloody Cape",
+      "artist": "Deftones",
+      "cover": "../Published_Content/Deftones/Deftones_Album/Deftones_Deftones_album_cover.jpg",
+      "albumId": "deftones_album",
+      "audioSrc": "../Published_Content/Deftones/Deftones_Album/Deftones_Bloody_Cape.mp3",
+      "position": 8
+    },
+    {
+      "id": "anniversary_of_an_uninteresting_event",
+      "title": "Anniversary of an Uninteresting Event",
+      "artist": "Deftones",
+      "cover": "../Published_Content/Deftones/Deftones_Album/Deftones_Deftones_album_cover.jpg",
+      "albumId": "deftones_album",
+      "audioSrc": "../Published_Content/Deftones/Deftones_Album/Deftones_Anniversary_of_an_Uninteresting_Event.mp3",
+      "position": 9
+    },
+    {
+      "id": "moana",
+      "title": "Moana",
+      "artist": "Deftones",
+      "cover": "../Published_Content/Deftones/Deftones_Album/Deftones_Deftones_album_cover.jpg",
+      "albumId": "deftones_album",
+      "audioSrc": "../Published_Content/Deftones/Deftones_Album/Deftones_Moana.mp3",
+      "position": 10
+    },
+    {
+      "id": "swerve_city",
+      "title": "Swerve City",
+      "artist": "Deftones",
+      "cover": "../Published_Content/Deftones/Koi_No_Yokan_Album/Deftones_Koi_No_Yokan_album_cover.jpg",
+      "albumId": "koi_no_yokan_album",
+      "audioSrc": "../Published_Content/Deftones/Koi_No_Yokan_Album/Deftones_Swerve_City.mp3",
+      "position": 1
+    },
+    {
+      "id": "romantic_dreams",
+      "title": "Romantic Dreams",
+      "artist": "Deftones",
+      "cover": "../Published_Content/Deftones/Koi_No_Yokan_Album/Deftones_Koi_No_Yokan_album_cover.jpg",
+      "albumId": "koi_no_yokan_album",
+      "audioSrc": "../Published_Content/Deftones/Koi_No_Yokan_Album/Deftones_Romantic_Dreams.mp3",
+      "position": 2
+    },
+    {
+      "id": "leathers",
+      "title": "Leathers",
+      "artist": "Deftones",
+      "cover": "../Published_Content/Deftones/Koi_No_Yokan_Album/Deftones_Koi_No_Yokan_album_cover.jpg",
+      "albumId": "koi_no_yokan_album",
+      "audioSrc": "../Published_Content/Deftones/Koi_No_Yokan_Album/Deftones_Leathers.mp3",
+      "position": 3
+    },
+    {
+      "id": "poltergeist",
+      "title": "Poltergeist",
+      "artist": "Deftones",
+      "cover": "../Published_Content/Deftones/Koi_No_Yokan_Album/Deftones_Koi_No_Yokan_album_cover.jpg",
+      "albumId": "koi_no_yokan_album",
+      "audioSrc": "../Published_Content/Deftones/Koi_No_Yokan_Album/Deftones_Poltergeist.mp3",
+      "position": 4
+    },
+    {
+      "id": "entombed",
+      "title": "Entombed",
+      "artist": "Deftones",
+      "cover": "../Published_Content/Deftones/Koi_No_Yokan_Album/Deftones_Koi_No_Yokan_album_cover.jpg",
+      "albumId": "koi_no_yokan_album",
+      "audioSrc": "../Published_Content/Deftones/Koi_No_Yokan_Album/Deftones_Entombed.mp3",
+      "position": 5
+    },
+    {
+      "id": "graphic_nature",
+      "title": "Graphic Nature",
+      "artist": "Deftones",
+      "cover": "../Published_Content/Deftones/Koi_No_Yokan_Album/Deftones_Koi_No_Yokan_album_cover.jpg",
+      "albumId": "koi_no_yokan_album",
+      "audioSrc": "../Published_Content/Deftones/Koi_No_Yokan_Album/Deftones_Graphic_Nature.mp3",
+      "position": 6
+    },
+    {
+      "id": "tempest",
+      "title": "Tempest",
+      "artist": "Deftones",
+      "cover": "../Published_Content/Deftones/Koi_No_Yokan_Album/Deftones_Koi_No_Yokan_album_cover.jpg",
+      "albumId": "koi_no_yokan_album",
+      "audioSrc": "../Published_Content/Deftones/Koi_No_Yokan_Album/Deftones_Tempest.mp3",
+      "position": 7
+    },
+    {
+      "id": "gauze",
+      "title": "Gauze",
+      "artist": "Deftones",
+      "cover": "../Published_Content/Deftones/Koi_No_Yokan_Album/Deftones_Koi_No_Yokan_album_cover.jpg",
+      "albumId": "koi_no_yokan_album",
+      "audioSrc": "../Published_Content/Deftones/Koi_No_Yokan_Album/Deftones_Gauze.mp3",
+      "position": 8
+    },
+    {
+      "id": "rosemary",
+      "title": "Rosemary",
+      "artist": "Deftones",
+      "cover": "../Published_Content/Deftones/Koi_No_Yokan_Album/Deftones_Koi_No_Yokan_album_cover.jpg",
+      "albumId": "koi_no_yokan_album",
+      "audioSrc": "Published_Content/Deftones/Koi_No_Yokan_Album/Deftones_Rosemary.mp3",
+      "position": 9
+    },
+    {
+      "id": "goon_squad",
+      "title": "Goon Squad",
+      "artist": "Deftones",
+      "cover": "../Published_Content/Deftones/Koi_No_Yokan_Album/Deftones_Koi_No_Yokan_album_cover.jpg",
+      "albumId": "koi_no_yokan_album",
+      "audioSrc": "../Published_Content/Deftones/Koi_No_Yokan_Album/Deftones_Goon_Squad.mp3",
+      "position": 10
+    },
+    {
+      "id": "what_happened_to_you",
+      "title": "What Happened to You?",
+      "artist": "Deftones",
+      "cover": "../Published_Content/Deftones/Koi_No_Yokan_Album/Deftones_Koi_No_Yokan_album_cover.jpg",
+      "albumId": "koi_no_yokan_album",
+      "audioSrc": "../Published_Content/Deftones/Koi_No_Yokan_Album/Deftones_What_Happened_to_You.mp3",
+      "position": 11
+    }
+  ],
+  "albums": [
+    {
+      "id": "deftones_album",
+      "title": "Deftones",
+      "artist": "Deftones",
+      "cover": "../Published_Content/Deftones/Deftones_Album/Deftones_Deftones_album_cover.jpg",
+      "year": 2003,
+      "tracks": [
+        "hexagram",
+        "minerva",
+        "needles_and_pins",
+        "deathblow",
+        "when_girls_telephone_boys",
+        "battle_axe",
+        "lucky_you",
+        "bloody_cape",
+        "anniversary_of_an_uninteresting_event",
+        "moana"
+      ]
+    },
+    {
+      "id": "koi_no_yokan_album",
+      "title": "Koi No Yokan",
+      "artist": "Deftones",
+      "cover": "../Published_Content/Deftones/Koi_No_Yokan_Album/Deftones_Koi_No_Yokan_album_cover.jpg",
+      "year": 2012,
+      "tracks": [
+        "swerve_city",
+        "romantic_dreams",
+        "leathers",
+        "poltergeist",
+        "entombed",
+        "graphic_nature",
+        "tempest",
+        "gauze",
+        "rosemary",
+        "goon_squad",
+        "what_happened_to_you"
+      ]
+    }
+  ],
+  "artists": [
+    {
+      "name": "Deftones",
+      "id": "deftones_artist",
+      "avatar": "../UI/DEFTONES_avatar.png",
+      "albums": [
+        "koi_no_yokan_album",
+        "deftones_album"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Сторінка виконавця</title>
+    <link rel="stylesheet" href="all_styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+    <header class="artist-banner">
+        <img src="https://www.deftones.com/sites/g/files/g2000013246/files/2025-03/copy_2FE783F6-B993-4DCA-B185-BB1368DF719C-ezgif.com-video-to-gif-converter.gif" alt="Банер гурту">
+        <div class="banner-overlay">
+            <button class="banner-logo">
+                <img src="UI\Logo and title.png" alt="Логотип сервісу">
+            </button>
+            <div class="banner-artist-name">Deftones</div>
+            <a href="#artist-content" class="scroll-down-button">
+                <i class="fas fa-chevron-down"></i>
+            </a>
+        </div>
+    </header>
+
+    <main id="artist-content" class="artist-content">
+        <section class="tracklist-section">
+            <h2>Трекліст</h2>
+            <ul class="tracklist" id="tracklist-container">
+                </ul>
+        </section>
+
+        <section class="albums-section">
+            <div class="albums-header">
+                <h2>Альбоми</h2>
+                <button class="show-all-albums">Показати всі</button>
+            </div>
+            <div class="albums-grid" id="albums-container">
+                </div>
+        </section>
+
+        <footer class="site-footer">
+            <nav class="footer-nav">
+                <ul>
+                    <li><a href="#" class="footer-link">Про нас</a></li>
+                    <li class="footer-logo-item">
+                        <button class="footer-logo">
+                            <img src="UI\Logo only.png" alt="Логотип">
+                        </button>
+                    </li>
+                    <li><a href="#" class="footer-link">Контакти</a></li>
+                </ul>
+            </nav>
+        </footer>
+    </main>
+
+    <script src="index_changed.js"></script>
+</body>
+</html>

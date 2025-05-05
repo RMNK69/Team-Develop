@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Сторінка треку</title>
+    <link rel="stylesheet" href="track_page_styles.css">
+</head>
+<body>
+    <main class="artist-content">
+        <section class="track-details">
+            <img id="track-cover" src="" alt="Обкладинка треку">
+            <h1 id="track-title"></h1>
+            <p id="track-artist"></p>
+            <p>З альбому: <span id="track-album"></span></p>
+            <a href="index.html">Назад на головну</a>
+        </section>
+    </main>
+
+    <script>
+        function getUrlParam(param) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param);
+        }
+
+        const trackId = getUrlParam('trackId');
+        const trackCoverElement = document.getElementById('track-cover');
+        const trackTitleElement = document.getElementById('track-title');
+        const trackArtistElement = document.getElementById('track-artist');
+        const trackAlbumElement = document.getElementById('track-album');
+
+        fetch('data.json')
+            .then(response => response.json())
+            .then(data => {
+                const track = data.tracks.find(track => track.id === trackId);
+
+                if (track) {
+                    trackCoverElement.src = track.cover;
+                    trackTitleElement.textContent = track.title;
+                    trackArtistElement.textContent = track.artist;
+
+                    const album = data.albums.find(album => album.id === track.albumId);
+                    trackAlbumElement.textContent = album ? album.title : 'Невідомо';
+                } else {
+                    trackTitleElement.textContent = 'Трек не знайдено';
+                }
+            })
+            .catch(error => console.error('Помилка завантаження даних:', error));
+    </script>
+</body>
+</html>

@@ -1,0 +1,283 @@
+body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #01010A;
+    color: #fff;
+}
+
+.artist-banner {
+    width: 100%;
+    position: relative; /* Для позиціонування оверлея */
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.artist-banner img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.banner-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Центрування по горизонталі */
+    justify-content: center; /* Центрування по вертикалі */
+    padding: 20px;
+    z-index: 10; /* Щоб контент оверлея був над зображенням */
+}
+
+.banner-logo {
+    margin-top: 20px; /* Відступ від верхнього краю */
+    position: absolute; /* Для позиціонування в кутку */
+    top: 20px;
+    left: 20px;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.banner-logo:hover {
+    transform: scale(1.1);
+}
+
+.banner-logo img {
+    height: 40px; /* Налаштуйте висоту логотипу */
+    display: block;
+}
+
+.scroll-down-button {
+    position: absolute;
+    bottom: 140px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 2em;
+    cursor: pointer;
+    z-index: 10;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+}
+
+.scroll-down-button:hover {
+    opacity: 1;
+}
+
+.artist-content {
+    padding: 20px;
+    background: linear-gradient(to bottom right, #252055, #01010A);
+    display: flex;
+    flex-direction: column;
+    min-height: calc(100vh - 100vh); /* Коригуємо висоту контенту */
+}
+
+.tracklist-section, .albums-section {
+    margin-bottom: 30px;
+}
+
+.tracklist-section h2, .albums-section h2 {
+    color: #fff;
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+.albums-section .albums-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.albums-section .albums-header h2 {
+    margin-bottom: 0;
+}
+
+.show-all-albums {
+    background: none;
+    border: none;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.9em;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+    padding: 5px 10px;
+    border-radius: 5px; /* Щоб візуально виглядало як кнопка */
+}
+
+.show-all-albums:hover {
+    opacity: 1;
+}
+
+.tracklist {
+    list-style: none;
+    padding: 0;
+}
+
+.track-item-li {
+    margin-bottom: 8px; /* Відступ між елементами списку */
+}
+
+.track-item {
+    display: flex;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 8px;
+    border-radius: 5px;
+    border: none; /* Прибираємо рамку кнопки */
+    width: 100%; /* Щоб кнопка займала всю ширину li */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.track-item:hover {
+    background-color: rgba(255, 255, 255, 0.2); /* Трохи світліший фон при наведенні */
+}
+
+.track-cover {
+    width: 75px;
+    height: 75px;
+    margin-right: 10px;
+    overflow: hidden;
+    border-radius: 5px;
+}
+
+.track-cover img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.track-info {
+    /* flex-grow: 1; */ /* Закоментовано, щоб текст не розтягувався */
+    color: #ccc; /* Встановлюємо колір тексту як у .track-title */
+}
+
+.artist-name {
+    font-weight: bold;
+    color: #eee;
+    font-size: 0.9em; /* Трохи зменшено шрифт */
+    margin-right: 5px; /* Додано невеликий відступ */
+}
+
+.track-title {
+    color: #ccc;
+    font-size: 0.9em; /* Трохи зменшено шрифт */
+}
+
+.albums-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(120px, 1fr));
+    gap: 20px;
+}
+
+.album-item {
+    background-color: rgba(255, 255, 255, 0.15);
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+    max-width: 220px;
+    margin: 0 auto;
+    border: none; /* Прибираємо рамку кнопки */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.album-item:hover {
+    background-color: rgba(255, 255, 255, 0.25); /* Трохи світліший фон при наведенні */
+}
+
+.album-item img {
+    display: block;
+    width: 80%;
+    height: auto;
+    border-radius: 5px;
+    margin: 0 auto 10px;
+}
+
+.album-title {
+    font-size: 1em;
+    margin-bottom: 5px;
+    color: #ddd;
+}
+
+.album-artist {
+    font-size: 0.9em;
+    color: #bbb;
+}
+
+.site-footer {
+    background-color: transparent;
+    color: #ccc;
+    padding: 20px 0;
+    text-align: center;
+    margin-top: auto;
+}
+
+.footer-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer-nav li {
+    margin: 0 15px;
+}
+
+.footer-nav a.footer-link {
+    color: #ccc;
+    text-decoration: underline;
+}
+
+.footer-logo-item {
+    margin: 0 15px; /* Щоб логотип мав відступи з боків */
+}
+
+.footer-logo {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.footer-logo:hover {
+    transform: scale(1.1);
+}
+
+.footer-logo img {
+    height: 50px; /* Змінено розмір логотипу в футері */
+    display: block;
+}
+
+.deftones-logo {
+    position: absolute; /* Або relative, залежно від бажаного позиціонування */
+    /* Додайте потрібні вам властивості для позиціонування логотипу */
+    /* наприклад: */
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 11; /* Значення більше за z-index .banner-overlay */
+}
+
+.deftones-logo img {
+    /* Стилі для зображення логотипу */
+    height: auto; /* Або фіксована висота */
+    width: auto; /* Або фіксована ширина */
+    max-width: 900px; /* За потреби обмежте максимальну ширину */
+}

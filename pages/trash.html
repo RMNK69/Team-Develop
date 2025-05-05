@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Player</title>
+</head>
+<body>
+    <h1>Music Player</h1>
+    
+    <button id="playMusicBtn">Play Music</button>
+
+    <script>
+        document.getElementById('playMusicBtn').addEventListener('click', function() {
+            const audioId = "680f4bfc1a71ed1299d79b5a"; // Example music file ID
+
+            // Fetch the audio file from the backend
+            fetch(`http://192.168.1.127:5000/api/music/file/${audioId}`)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('File not found');
+                    }
+                    return response.blob();  // Convert the response to a Blob
+                })
+                .then(blob => {
+                    // Create a temporary URL for the Blob object
+                    const blobUrl = URL.createObjectURL(blob);
+
+                    // Create an audio player and set the Blob URL as the source
+                    const audioElement = new Audio(blobUrl);
+                    audioElement.controls = true;  // Enable audio controls (play, pause, etc.)
+
+                    // Append the audio player to the page
+                    document.body.appendChild(audioElement);
+
+                    // Automatically play the audio (optional)
+                    audioElement.play();
+                })
+                .catch(error => {
+                    console.error('Error fetching the audio file:', error);
+                });
+        });
+    </script>
+</body>
+</html>

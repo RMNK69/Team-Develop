@@ -57,11 +57,7 @@ body {
     min-height: 100vh;
 }
 
-.track-item-button.active {
-    background-color: rgba(255, 255, 255, 0.3);
-    /* Або будь-який інший стиль, який тобі подобається */
-    color: #f0f0f0;
-}
+
 
 .album-info-player {
     flex: 1;
@@ -266,6 +262,7 @@ body {
     border-radius: 3px;
     cursor: pointer;
     position: relative;
+    z-index: 1000;
 }
 
 .volume-slider {
@@ -287,4 +284,9 @@ body {
     border-radius: 50%;
     cursor: grab;
     transform: translateX(-50%); /* Додайте це для центрування */
+}
+
+.track-item-button.active {
+    background-color: rgba(255, 255, 255, 0.3); /* Змінений колір фону для активного треку */
+    /* Додаткові стилі за бажанням */
 }

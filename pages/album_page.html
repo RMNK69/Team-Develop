@@ -14,37 +14,39 @@
         <span></span>
     </div>
     <div class="menu" id="menu">
-    </div>
+        </div>
     <main class="album-container">
         <div class="album-info-player">
             <div class="album-cover-container">
                 <img id="album-cover" src="" alt="Обкладинка альбому" class="album-cover">
             </div>
             <div class="music-player">
-                <div class="progress-bar-wrapper">
-                    <div id="track-info-display"></div>
-                    <span id="current-time">00:00</span>
-                    <div class="progress-bar-container">
-                        <div class="progress-bar" id="progressBar">
-                            <div class="progress" id="progress">
+                <h3>Плеєр</h3>
+                <div class="player-controls">
+                    <div class="progress-bar-wrapper">
+                        <span id="current-time">00:00</span>
+                        <div class="progress-bar-container">
+                            <div class="progress-bar" id="progressBar">
+                                <div class="progress" id="progress">
+                                    </div>
                             </div>
                         </div>
+                        <span id="duration">02:04</span>
                     </div>
-                    <span id="duration">02:04</span>
-                </div>
-                <div class="controls-buttons">
-                    <button id="prevTrack"><i class="fas fa-backward"></i></button>
-                    <button id="playPause"><i class="fas fa-play"></i></button>
-                    <button id="nextTrack"><i class="fas fa-forward"></i></button>
-                </div>
-                <div class="secondary-controls">
-                    <button id="like"><i class="far fa-heart"></i></button>
-                    <button id="repeat"><i class="fas fa-redo"></i></button>
-                </div>
-                <div class="volume-control">
-                    <i class="fas fa-volume-up volume-icon"></i>
-                    <div class="volume-slider-container" id="volumeSliderContainer">
-                        <div class="volume-slider" id="volumeSlider">
+                    <div class="controls-buttons">
+                        <button id="prevTrack"><i class="fas fa-backward"></i></button>
+                        <button id="playPause"><i class="fas fa-play"></i></button>
+                        <button id="nextTrack"><i class="fas fa-forward"></i></button>
+                    </div>
+                    <div class="secondary-controls">
+                        <button id="like"><i class="far fa-heart"></i></button>
+                        <button id="repeat"><i class="fas fa-redo"></i></button>
+                    </div>
+                    <div class="volume-control">
+                        <i class="fas fa-volume-up volume-icon"></i>
+                        <div class="volume-slider-container" id="volumeSliderContainer">
+                            <div class="volume-slider" id="volumeSlider">
+                                </div>
                         </div>
                     </div>
                 </div>
@@ -56,7 +58,6 @@
                 <h1 id="album-title"></h1>
                 <p><span id="album-artist"></span>, <span id="album-year"></span>, <span id="album-track-count"></span> треків</p>
             </div>
-            <h2>Трекліст</h2>
             <ul class="tracklist" id="album-tracklist">
             </ul>
         </div>

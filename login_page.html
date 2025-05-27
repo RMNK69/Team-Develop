@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вхід</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(to bottom, #1c1c1c, #0d0d0d); /* Градієнтний фон за замовчуванням */
+            color: white; /* Білий колір тексту за замовчуванням */
+        }
+ 
+        
+        .background-image {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            object-fit: cover; /* Щоб зображення заповнювало весь фон */
+            z-index: -1; /* Розміщуємо фон позаду контенту */
+        }
+
+        .registration-container {
+            background-color: rgb(18 18 18 / 96%); /* Темний напівпрозорий фон для форми */
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            text-align: center;
+            width: 300px;
+            display: flex;
+            flex-direction: column; /* Розташовуємо елементи вертикально */
+            align-items: center; /* Вирівнюємо елементи по центру горизонтально */
+            /* Щоб контейнер форми став орієнтиром для абсолютно позиціонованого логотипу */
+            position: relative;
+        }
+
+        .logo-container {
+            /* padding: 0px; */ /* Це не потрібне, якщо використовується absolute позиціонування */
+            position: absolute;
+            /* Переміщуємо логотип вгору відносно верхнього краю контейнера форми. */
+            /* Експериментуй з цим значенням, щоб знайти потрібну висоту. */
+            /* Від'ємне значення підніме його над верхнім краєм контейнера. */
+            top: -15px; /* Приклад: підняти на 70px вище верхнього краю контейнера */
+            /* Центруємо логотип по горизонталі відносно контейнера форми */
+            left: 50%;
+            transform: translateX(-50%);
+            /* margin-bottom: 40px; */ /* Це також не потрібне при absolute позиціонуванні */
+        }
+
+        .logo {
+            max-width: 90px; /* Задай максимальну ширину логотипу */
+            height: auto; /* Автоматичне визначення висоти для збереження пропорцій */
+        }
+
+        h2 {
+            color: white;
+            margin-bottom: 20px;
+            width: 100%; /* Щоб заголовок займав всю ширину контейнера */
+            text-align: center; /* Вирівнюємо заголовок по центру */
+            /* Додатковий відступ для заголовка, щоб уникнути накладання на логотип */
+            margin-top: 50px; /* Експериментуй з цим значенням */
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+            text-align: left;
+            width: 100%; /* Щоб поля займали всю ширину контейнера */
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: white;
+            font-size: 0.9em;
+        }
+
+        .search-bar {
+            background-color: rgba(255, 255, 255, 0.2); /* Напівпрозорий фон */
+            border-radius: 5px;
+            padding: 6px;
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px; /* Зменшено відступ між полями */
+            width: 100%;
+        }
+
+        .search-bar input {
+            flex-grow: 1;
+            background: none;
+            border: none;
+            color: white;
+            padding: 8px;
+            font-size: 1em;
+        }
+
+        .search-bar input::placeholder {
+            color: #ccc;
+        }
+
+        button {
+            background-color: white; /* Білий фон кнопки */
+            color: rgb(18 18 18 / 96%); /* Колір тексту ідентичний фону форми */
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            width: 100%; /* Кнопка на всю ширину контейнера */
+        }
+
+        button:hover {
+            background-color: rgba(255, 255, 255, 0.8); /* Трохи темніший білий при наведенні */
+            color: #333; /* Змінимо колір тексту при наведенні для кращого контрасту */
+        }
+
+        .error-message {
+            color: red;
+            font-size: 0.8em;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <img src="UI\video_2025-05-16_12-45-17.gif" alt="Анімований фон" class="background-image">
+    <div class="registration-container">
+        <div class="logo-container">
+            <img src="UI\Logo_only.png" alt="Логотип" class="logo">
+        </div>
+        <h2>Вхід</h2>
+        <form method="post">
+            <div class="form-group">
+                <label for="email">Електронна пошта:</label>
+                <div class="search-bar">
+                    <input type="email" id="email" name="email" placeholder="Введіть email" required>
+                </div>
+                <div class="error-message" id="emailError"></div>
+            </div>
+            <div class="form-group">
+                <label for="password">Пароль:</label>
+                <div class="search-bar">
+                    <input type="password" id="password" name="password" placeholder="Введіть пароль" required>
+                </div>
+                <div class="error-message" id="passwordError"></div>
+            </div>
+            <button type="submit">Авторизуватись</button>
+        </form>
+        <div class="success-message" id="loginSuccess" style="display:none;">Вхід успішний!</div>
+    </div>
+    <script src="scripts/API.js"></script>
+    <script>
+        // Тут можна додати JavaScript для валідації полів форми
+        const form = document.querySelector('form');
+        const usernameInput = document.getElementById('username');
+        const emailInput = document.getElementById('email');
+        const passwordInput = document.getElementById('password');
+        const confirmPasswordInput = document.getElementById('confirm_password');
+        const usernameError = document.getElementById('usernameError');
+        const emailError = document.getElementById('emailError');
+        const passwordError = document.getElementById('passwordError');
+        const confirmPasswordError = document.getElementById('confirmPasswordError');
+        const loginSuccessMessage = document.getElementById('loginSuccess');
+
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            let isValid = true;
+
+            /*
+            if (usernameInput.value.trim() === '') {
+                usernameError.textContent = "Будь ласка, введіть ім'я користувача.";
+                isValid = false;
+            } else {
+                usernameError.textContent = '';
+            }
+
+            if (emailInput.value.trim() === '') {
+                emailError.textContent = "Будь ласка, введіть електронну пошту.";
+                isValid = false;
+            } else if (!isValidEmail(emailInput.value.trim())) {
+                emailError.textContent = "Будь ласка, введіть дійсну електронну пошту.";
+                isValid = false;
+            } else {
+                emailError.textContent = '';
+            }
+
+            if (passwordInput.value === '') {
+                passwordError.textContent = "Будь ласка, введіть пароль.";
+                isValid = false;
+            } else if (passwordInput.value.length < 6) {
+                passwordError.textContent = "Пароль повинен містити не менше 6 символів.";
+                isValid = false;
+            } else {
+                passwordError.textContent = '';
+            }
+
+            if (confirmPasswordInput.value === '') {
+                confirmPasswordError.textContent = "Будь ласка, підтвердіть пароль.";
+                isValid = false;
+            } else if (confirmPasswordInput.value !== passwordInput.value) {
+                confirmPasswordError.textContent = "Паролі не співпадають.";
+                isValid = false;
+            } else {
+                confirmPasswordError.textContent = '';
+            }
+                */
+
+
+            if (isValid) {
+                const email = emailInput.value;
+                const password = passwordInput.value;
+                API.login(email, password)
+                    .then(data => {
+                        console.log('Успішний вхід:', data);
+                        // Зберігаємо JWT токен (припускаємо, що сервер повертає поле 'token')
+                        const token = data.token;
+                        if (token) {
+                            localStorage.setItem('jwtToken', token);
+                        }
+                        // Показуємо повідомлення про успішний вхід
+                        loginSuccessMessage.style.display = 'block';
+                        // Перенаправляємо на основну сторінку (замініть '/dashboard' на ваш URL)
+                        setTimeout(() => {
+                            window.location.href = '/main_page.html';
+                        }, 500); // Затримка в 1.5 секунди перед перенаправленням
+                    })
+                    .catch(error => {
+                        console.error('Помилка входу:', error);
+                        loginSuccessMessage.style.display = 'none'; // Приховуємо повідомлення про успіх, якщо була помилка
+                        // Тут можна показати повідомлення про помилку користувачеві
+                        if (error.message) {
+                            alert(`Помилка входу: ${error.message}`);
+                        } else {
+                            alert('Помилка входу. Будь ласка, спробуйте ще раз.');
+                        }
+                    });
+            } else {
+                loginSuccessMessage.style.display = 'none'; // Приховуємо повідомлення про успіх, якщо валідація не пройшла
+            }
+        });
+
+        function isValidEmail(email) {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(email);
+        }
+    </script>
+</body>
+</html>

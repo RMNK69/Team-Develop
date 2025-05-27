@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <link rel="icon" href="UI/Logo_only.png" type="image/png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Головна сторінка</title>
+    <link rel="stylesheet" href="styles/main_page.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body class="animated-background">
+    <div class="container">
+        <aside class="sidebar">
+            <div class="logo-container">
+                <img src="UI/Logo_and_title.png" alt="Логотип" class="logo">
+            </div>
+            <div class="search-bar">
+                <input type="text" placeholder="пошук">
+                <div class="search-icon"></div>
+            </div>
+            <nav class="menu" id="mainMenu">
+                <ul>
+                    <li><a href="/registration_page.html">Реєстрація</a></li>
+                    <li><a href="/login_page.html">Авторизація</a></li>
+                </ul>
+            </nav>
+        </aside>
+        <main class="content">
+            <section class="tracks-roll horizontal-roll-container">
+                <h2>Випадкові треки</h2>
+                <div class="roll-wrapper">
+                    <div class="roll-container" id="random-tracks">
+                        </div>
+                </div>
+                <button class="scroll-button scroll-left" data-target="random-tracks"><i class="fas fa-chevron-left"></i></button>
+                <button class="scroll-button scroll-right" data-target="random-tracks"><i class="fas fa-chevron-right"></i></button>
+            </section>
+            <section class="artists-roll horizontal-roll-container">
+                <h2>Виконавці</h2>
+                <div class="roll-wrapper">
+                    <div class="roll-container" id="artists">
+                        </div>
+                </div>
+                <button class="scroll-button scroll-left" data-target="artists"><i class="fas fa-chevron-left"></i></button>
+                <button class="scroll-button scroll-right" data-target="artists"><i class="fas fa-chevron-right"></i></button>
+            </section>
+            <section class="albums-roll horizontal-roll-container">
+                <h2>Випадкові альбоми</h2>
+                <div class="roll-wrapper">
+                    <div class="roll-container" id="random-albums">
+                        </div>
+                </div>
+                <button class="scroll-button scroll-left" data-target="random-albums"><i class="fas fa-chevron-left"></i></button>
+                <button class="scroll-button scroll-right" data-target="random-albums"><i class="fas fa-chevron-right"></i></button>
+            </section>
+        </main>
+    </div>
+    <script src="scripts/main_page.js"></script>
+</body>
+</html>

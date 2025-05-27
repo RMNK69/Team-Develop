@@ -1,0 +1,329 @@
+body {
+    margin: 0;
+    overflow: hidden;
+    font-family: sans-serif; /* Додамо базовий шрифт */
+    color: #333; /* Базовий колір тексту */
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+}
+
+.animated-background {
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(45deg, #252055, #040421, #151556); /* Діагональний градієнт */
+    background-size: 200% 200%; /* Збільшуємо розмір по обох осях */
+    animation: diagonal-gradient 40s ease infinite alternate; /* Змінюємо назву анімації */
+}
+
+@keyframes diagonal-gradient {
+    0% {
+        background-position: 0% 0%; /* Початкове положення у верхньому лівому куті */
+    }
+    100% {
+        background-position: 100% 100%; /* Кінцеве положення у нижньому правому куті */
+    }
+}
+
+.content {
+    flex-grow: 1;
+    padding: 20px;
+    overflow-y: auto; /* Додамо прокрутку для основного контенту, якщо він не вміщається */
+}
+
+.horizontal-roll-container {
+    margin-bottom: 30px;
+    position: relative; /* Для позиціонування кнопок */
+}
+
+.horizontal-roll-container h2 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    color: #fff; /* Колір заголовків секцій */
+}
+
+.roll-wrapper {
+    overflow: hidden; /* Приховуємо стандартну прокрутку */
+}
+
+.roll-container {
+    display: flex;
+    gap: 20px;
+    padding-bottom: 15px; /* Щоб не обрізати тіні елементів */
+    transition: transform 0.3s ease-in-out; /* Для плавної прокрутки */
+    overflow-x: auto; /* Додаємо горизонтальну прокрутку */
+    scroll-behavior: smooth; /* Для плавної прокрутки */
+    -webkit-scrollbar {
+        display: none; /* Приховуємо скролбар для WebKit браузерів */
+    }
+    scrollbar-width: none; /* Приховуємо скролбар для Firefox */
+}
+
+.scroll-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    /* background: rgba(0, 0, 0, 0.5); */
+    background:#1e1e1e;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 10; /* Щоб бути над контентом */
+    opacity: 1;
+    transition: opacity 0.5s ease;
+    transition: background 0.5s ease;
+    border-radius: 50%; /* Робимо кнопки круглими */
+    width: 40px; /* Задаємо фіксовану ширину */
+    height: 40px; /* Задаємо фіксовану висоту (таку ж, як ширина для кола) */
+    display: flex; /* Для центрування іконки */
+    justify-content: center; /* Центруємо по горизонталі */
+    align-items: center; /* Центруємо по вертикалі */
+    font-size: 1.2em; /* Можна збільшити розмір іконки */
+}
+
+.scroll-button:hover {
+    opacity: 1;
+    background:#333333;
+}
+
+.scroll-left {
+    left: -10px; /* Змістіть трохи лівіше */
+}
+
+.scroll-right {
+    right: -10px; /* Змістіть трохи правіше */
+}
+
+.scroll-button:disabled {
+    opacity: 0.3;
+    cursor: default;
+}
+
+/* Стилі для бічного меню */
+.sidebar {
+    width: 300px; /* Приблизна ширина бічного меню */
+    background: linear-gradient(to bottom, #1c1c1c, #0d0d0d);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Вирівнюємо елементи по лівому краю */
+}
+
+.logo-container {
+    margin-bottom: 20px;
+}
+
+.logo {
+    width: 100%; /* Логотип на всю ширину контейнера */
+    max-width: 200px; /* Максимальна ширина логотипу */
+    height: auto;
+    border: none; /* Прибираємо обводку */
+}
+
+.search-bar {
+    background-color: rgba(255, 255, 255, 0.2); /* Напівпрозорий фон */
+    border-radius: 5px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.search-bar input[type="text"] {
+    flex-grow: 1;
+    border: none;
+    background: transparent;
+    color: #fff; /* Колір тексту пошуку */
+    padding: 8px;
+    font-size: 16px;
+}
+
+.search-bar input[type="text"]::placeholder {
+    color: rgba(255, 255, 255, 0.7); /* Напівпрозорий колір placeholder */
+}
+
+.search-icon {
+    width: 20px;
+    height: 20px;
+    background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23fff"%3E%3Cpath d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 5 1.5-1.5-5-5zm-6 0C7 14 5 12 5 9.5S7 5 9.5 5 14 7 14 9.5 12 14 9.5 14z"/%3E%3C/svg%3E'); /* Приклад іконки лупи (можна замінити на зображення) */
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-left: 10px;
+    opacity: 0.7;
+}
+
+.menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+.menu li button  {
+    margin-bottom: 10px;
+}
+
+.menu li a {
+    display: block;
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.menu li a:hover {
+    background-color: #2e2e2e;
+}
+
+/* Стилі для елементів горизонтальних ролів */
+.track-item, .album-item {
+    background-color: transparent; /* Прибираємо початковий фон */
+    color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: none; /* Прибираємо тінь */
+    width: 220px; /* Збільшуємо ширину */
+    height: 320px;
+    flex-shrink: 0;
+    transition: background-color 0.2s ease-in-out; /* Плавна зміна фону */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Центруємо вміст по горизонталі */
+}
+
+.track-item:hover, .album-item:hover {
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.1); /* Світліший фон при наведенні */
+}
+
+.artist-item {
+    background-color: transparent; /* Прибираємо початковий фон */
+    color: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: none;
+    width: 240px;
+    height: 270px; /* Збільшуємо висоту artist-item */
+    flex-shrink: 0;
+    transition: background-color 0.2s ease-in-out; /* Плавна зміна фону */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Центруємо вміст по вертикалі */
+    align-items: center; /* Центруємо вміст по горизонталі */
+    padding: 10px; /* Додамо невеликі внутрішні відступи */
+}
+
+.artist-item:hover {
+    background-color: rgba(255, 255, 255, 0.1); /* Світліший фон при наведенні */
+    transform: none; /* Відключаємо збільшення при наведенні */
+}
+
+.artist-avatar-container {
+    width: 220px; /* Збільшуємо розмір аватарки */
+    height: 220px; /* Збільшуємо розмір аватарки */
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 10px auto 5px; /* Зменшуємо верхній відступ та нижній */
+}
+
+.artist-avatar-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.artist-name {
+    padding: 5px 10px; /* Зменшуємо верхній відступ */
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 1.1em;
+}
+
+/* Стилі для блоку треку */
+.track-cover-container {
+    width: 220px; /* Збільшуємо розмір обкладинки */
+    height: 220px; /* Збільшуємо розмір обкладинки */
+    aspect-ratio: 1 / 1; /* Квадратна обкладинка */
+    overflow: hidden;
+    border-radius: 8px 8px 0 0; /* Забираємо закруглення знизу, якщо потрібно */
+    margin-top: 0px; /* Додаємо відступ зверху */
+}
+
+.track-cover {
+    width: 220px;
+    height: 220px;
+    object-fit: cover;
+    display: block;
+}
+
+.track-info {
+    padding: 0px 5px;
+    text-align: top-left;
+    width: 220px;
+    height: 100px ;
+}
+
+.track-info .track-title {
+    font-size: 1.2em;
+    white-space: normal;
+    overflow-wrap: break-word;
+    padding-left: 10px;
+    margin-bottom: 3px;
+}
+
+.track-info .track-artist-album {
+    font-size: 1em;
+    color: #b3b3b3;
+    white-space: normal;
+    overflow-wrap: break-word;
+    padding-left: 10px;
+    margin-top: 0;
+}
+
+/* Стилі для блоку альбому */
+.album-cover-container {
+    width: 220px;
+    height: 220px;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    border-radius: 8px 8px 0 0;
+    margin-top: 0px;
+}
+
+.album-cover {
+    width: 220px;
+    height: 220px;
+    object-fit: cover;
+    display: block;
+}
+
+.album-info {
+    padding: 5px 10px; /* Зменшимо верхній та нижній відступи */
+    text-align: left;
+    width: 220px;
+}
+
+.album-info .album-title {
+    font-size: 1.2em;
+    white-space: normal;
+    overflow-wrap: break-word;
+    margin-bottom: 3px;
+    padding-left: 10px;
+}
+
+.album-info .album-artist { /* Стилі для автора альбому */
+    font-size: 1em;
+    color: #b3b3b3;
+    white-space: normal;
+    overflow-wrap: break-word;
+    padding-left: 10px;
+    margin-top: 0; /* Приберемо верхній відступ за замовчуванням */
+}

@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Реєстрація</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(to bottom, #1c1c1c, #0d0d0d);
+            color: white;
+        }
+
+        .background-image {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            object-fit: cover;
+            z-index: -1;
+        }
+
+        .registration-container {
+            background-color: rgb(18 18 18 / 96%);
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            text-align: center;
+            width: 300px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+        }
+
+        .logo-container {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .logo {
+            max-width: 90px;
+            height: auto;
+        }
+
+        h2 {
+            color: white;
+            margin-bottom: 20px;
+            width: 100%;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+            text-align: left;
+            width: 100%;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: white;
+            font-size: 0.9em;
+        }
+
+        .search-bar {
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 5px;
+            padding: 6px;
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            width: 100%;
+        }
+
+        .search-bar input {
+            flex-grow: 1;
+            background: none;
+            border: none;
+            color: white;
+            padding: 8px;
+            font-size: 1em;
+        }
+
+        .search-bar input::placeholder {
+            color: #ccc;
+        }
+
+        button {
+            background-color: white;
+            color: rgb(18 18 18 / 96%);
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            width: 100%;
+        }
+
+        button:hover {
+            background-color: rgba(255, 255, 255, 0.8);
+            color: #333;
+        }
+
+        .error-message {
+            color: red;
+            font-size: 0.8em;
+            margin-top: 5px;
+        }
+
+        .success-message {
+            color: green;
+            font-size: 1em;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <img src="UI\video_2025-05-16_12-45-17.gif" alt="Анімований фон" class="background-image">
+    <div class="registration-container">
+        <div class="logo-container">
+            <img src="UI\Logo_only.png" alt="Логотип" class="logo">
+        </div>
+        <h2>Реєстрація</h2>
+        <form id="registrationForm" action="#" method="post">
+            <div class="form-group">
+                <label for="username">Ім'я користувача:</label>
+                <div class="search-bar">
+                    <input type="text" id="username" name="username" placeholder="Введіть ім'я" required>
+                </div>
+                <div class="error-message" id="usernameError"></div>
+            </div>
+            <div class="form-group">
+                <label for="email">Електронна пошта:</label>
+                <div class="search-bar">
+                    <input type="email" id="email" name="email" placeholder="Введіть email" required>
+                </div>
+                <div class="error-message" id="emailError"></div>
+            </div>
+            <div class="form-group">
+                <label for="password">Пароль:</label>
+                <div class="search-bar">
+                    <input type="password" id="password" name="password" placeholder="Введіть пароль" required>
+                </div>
+                <div class="error-message" id="passwordError"></div>
+            </div>
+            <div class="form-group">
+                <label for="confirm_password">Підтвердіть пароль:</label>
+                <div class="search-bar">
+                    <input type="password" id="confirm_password" name="confirm_password" placeholder="Підтвердіть пароль" required>
+                </div>
+                <div class="error-message" id="confirmPasswordError"></div>
+            </div>
+            <button type="submit">Зареєструватися</button>
+        </form>
+        <div class="success-message" id="registrationSuccess" style="display:none;"></div>
+    </div>
+
+    <script src="scripts/API.js"></script>
+    <script>
+        const form = document.getElementById('registrationForm');
+        const usernameInput = document.getElementById('username');
+        const emailInput = document.getElementById('email');
+        const passwordInput = document.getElementById('password');
+        const confirmPasswordInput = document.getElementById('confirm_password');
+        const usernameError = document.getElementById('usernameError');
+        const emailError = document.getElementById('emailError');
+        const passwordError = document.getElementById('passwordError');
+        const confirmPasswordError = document.getElementById('confirmPasswordError');
+        const registrationSuccessMessage = document.getElementById('registrationSuccess');
+
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
+            let isValid = true;
+
+            /*
+            if (usernameInput.value.trim() === '') {
+                usernameError.textContent = "Будь ласка, введіть ім'я користувача.";
+                isValid = false;
+            } else {
+                usernameError.textContent = '';
+            }
+
+            if (emailInput.value.trim() === '') {
+                emailError.textContent = "Будь ласка, введіть електронну пошту.";
+                isValid = false;
+            } else if (!isValidEmail(emailInput.value.trim())) {
+                emailError.textContent = "Будь ласка, введіть дійсну електронну пошту.";
+                isValid = false;
+            } else {
+                emailError.textContent = '';
+            }
+
+            if (passwordInput.value === '') {
+                passwordError.textContent = "Будь ласка, введіть пароль.";
+                isValid = false;
+            } else if (passwordInput.value.length < 6) {
+                passwordError.textContent = "Пароль повинен містити не менше 6 символів.";
+                isValid = false;
+            } else {
+                passwordError.textContent = '';
+            }
+
+            if (confirmPasswordInput.value === '') {
+                confirmPasswordError.textContent = "Будь ласка, підтвердіть пароль.";
+                isValid = false;
+            } else if (confirmPasswordInput.value !== passwordInput.value) {
+                confirmPasswordError.textContent = "Паролі не співпадають.";
+                isValid = false;
+            } else {
+                confirmPasswordError.textContent = '';
+            }*/
+
+            if (isValid) {
+                const username = usernameInput.value;
+                const email = emailInput.value;
+                const password = passwordInput.value;
+
+                API.register(username, email, password)
+                    .then(data => {
+                        console.log('Успішна реєстрація:', data);
+                        registrationSuccessMessage.textContent = "Підтвердіть вхід в Gmail";
+                        registrationSuccessMessage.style.display = 'block';
+                        // Затримка перед перенаправленням на сторінку входу (опціонально)
+                        setTimeout(() => {
+                            window.location.href = '/login_page.html';
+                        }, 3000); // Перенаправлення через 3 секунди
+                    })
+                    .catch(error => {
+    console.error('Помилка реєстрації:', error);
+    registrationSuccessMessage.style.display = 'none';
+    if (error.message && error.message.includes('Користувач з таким email вже зареєстрований')) {
+        alert('Помилка реєстрації: Користувач з таким email вже зареєстрований.');
+    } else if (error.message) {
+        alert(`Помилка реєстрації: ${error.message}`);
+    } else {
+        alert('Помилка реєстрації. Будь ласка, спробуйте ще раз.');
+    }
+});
+            } else {
+                registrationSuccessMessage.style.display = 'none'; // Приховуємо повідомлення про успіх, якщо валідація не пройшла
+            }
+        });
+
+        function isValidEmail(email) {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(email);
+        }
+    </script>
+</body>
+</html>

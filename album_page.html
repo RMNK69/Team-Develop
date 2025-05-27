@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <link rel="icon" href="UI/Logo_only.png" type="image/png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Сторінка альбому</title>
+    <link rel="stylesheet" href="styles/album_page_styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body class="animated-background">
+    <div class="menu-toggle" id="menuToggle">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+    <div class="menu" id="menu">
+    </div>
+    <main class="album-container">
+        <div class="album-info-player">
+            <div class="album-cover-container">
+                <img id="album-cover" src="" alt="Обкладинка альбому" class="album-cover">
+            </div>
+            <div class="music-player">
+                <h3>Плеєр</h3>
+                <div class="player-controls">
+                    <div class="progress-bar-wrapper">
+                        <span id="current-time">00:00</span>
+                        <div class="progress-bar-container">
+                            <div class="progress-bar" id="progressBar">
+                                <div class="progress" id="progress">
+                                </div>
+                            </div>
+                        </div>
+                        <span id="duration">02:04</span>
+                    </div>
+                    <div class="controls-buttons">
+                        <button id="prevTrack"><i class="fas fa-backward"></i></button>
+                        <button id="playPause"><i class="fas fa-play"></i></button>
+                        <button id="nextTrack"><i class="fas fa-forward"></i></button>
+                    </div>
+                    <div class="secondary-controls">
+                        <button id="like"><i class="far fa-heart"></i></button>
+                        <button id="repeat"><i class="fas fa-redo"></i></button>
+                    </div>
+                    <div class="volume-control">
+                        <i class="fas fa-volume-up volume-icon"></i>
+                        <div class="volume-slider-container" id="volumeSliderContainer">
+                            <div class="volume-slider" id="volumeSlider">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <audio id="audio-player"></audio>
+            </div>
+        </div>
+        <div class="tracklist-section">
+            <div class="album-details">
+                <h1 id="album-title"></h1>
+                <p><span id="album-artist"></span>, <span id="album-year"></span>, <span id="album-track-count"></span> треків</p>
+            </div>
+            <ul class="tracklist" id="album-tracklist">
+            </ul>
+        </div>
+    </main>
+
+    <script src="scripts/album_page.js"></script>
+</body>
+</html>

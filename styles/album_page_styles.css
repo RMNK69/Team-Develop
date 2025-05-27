@@ -1,0 +1,313 @@
+/* Загальні стилі, які можуть впливати на album_page */
+body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #fff;
+    overflow: hidden; /* Щоб приховати можливі смуги прокрутки від анімованого фону */
+}
+
+/* Стилі для меню-гамбургера (можуть використовуватися) */
+.menu-toggle {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+    cursor: pointer;
+    z-index: 20;
+}
+
+.menu-toggle span {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background-color: #fff;
+    border-radius: 3px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 200px;
+    height: 100%;
+    background: linear-gradient(to bottom, #FAFAFA, #6A6A6A);
+    z-index: 15;
+    transform: translateX(-200px);
+    transition: transform 0.3s ease;
+}
+
+.menu.open {
+    transform: translateX(0);
+}
+
+/* Стилі безпосередньо для album_page */
+.album-container {
+    display: flex;
+    flex-direction: row;
+    padding: 20px;
+    /*background-color: #01010A; /* Застосовуємо колір фону тут, якщо потрібно для контейнера */
+    color: #fff;
+    margin: 0;
+    min-height: 100vh;
+}
+
+.album-info-player {
+    flex: 1;
+    max-width: 400px;
+    margin-right: 30px;
+    margin-left: 30px;
+}
+
+.album-cover-container {
+    text-align: center;
+    margin-bottom: 20px; /* Збільшено відступ знизу, щоб опустити нижче */
+    width: 350px; /* Збільшено ширину */
+    height: 350px; /* Збільшено висоту */
+    overflow: hidden;
+    margin-left: 50px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    margin-left: auto; /* Центрування по горизонталі */
+    margin-right: auto; /* Центрування по горизонталі */
+}
+
+.album-cover {
+    max-width: 100%;
+    height: 100%;
+    object-fit: cover; /* Щоб зображення заповнювало контейнер без спотворень */
+    border-radius: 8px; /* Успадковує заокруглення від контейнера */
+}
+
+.album-details {
+    margin-bottom: 20px;
+}
+
+.album-details h1 {
+    margin-top: 0;
+    font-size: 2em;
+}
+
+.album-details p {
+    margin-bottom: 5px;
+}
+
+.music-player {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 20px; /* Може бути не потрібним, якщо це єдиний плеєр */
+    margin-left: auto; /* Центрування по горизонталі */
+    margin-right: auto; /* Центрування по горизонталі */
+}
+
+.tracklist-section {
+    flex: 1;
+    margin-left: 20px;
+}
+
+.tracklist-section h2 {
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+.tracklist {
+    list-style: none;
+    padding: 0;
+}
+
+.track-item-li {
+    margin-bottom: 8px;
+}
+
+.track-item-button {
+    display: flex;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 8px;
+    border-radius: 5px;
+    border: none;
+    width: 100%;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    color: #fff;
+    text-align: left;
+}
+
+.track-item-button:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.track-info {
+    margin-left: 10px;
+}
+
+.track-artist {
+    font-weight: bold;
+    color: #eee;
+    font-size: 0.9em;
+    margin-right: 5px;
+}
+
+.track-title {
+    color: #ccc;
+    font-size: 0.9em;
+}
+
+/* Стилі для кастомного плеєра */
+.player-controls {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.progress-bar-wrapper {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.progress-bar-wrapper span {
+    font-size: 0.8em;
+    color: #ccc;
+    margin: 0 10px;
+    white-space: nowrap;
+}
+
+.progress-bar-container {
+    flex-grow: 1;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 5px;
+    background-color: #444;
+    border-radius: 3px;
+    cursor: pointer;
+    position: relative;
+}
+
+.progress {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background-color: #fff;
+    border-radius: 3px;
+    width: 0%; /* Динамічно змінюватиметься */
+
+}
+
+.controls-buttons {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.controls-buttons button {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 1.5em;
+    margin: 0 10px;
+    cursor: pointer;
+}
+
+.controls-buttons button:focus {
+    outline: none;
+}
+
+.secondary-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.secondary-controls button {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 1.2em;
+    cursor: pointer;
+}
+
+.secondary-controls button:focus {
+    outline: none;
+}
+
+.volume-control {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.volume-icon {
+    font-size: 1.2em;
+    margin-right: 10px;
+}
+
+.volume-slider-container {
+    flex-grow: 1;
+    background-color: #444;
+    height: 5px;
+    border-radius: 3px;
+    cursor: pointer;
+    position: relative;
+    z-index: 1000;
+}
+
+.volume-slider {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background-color: #fff;
+    border-radius: 3px;
+    width: 50%; /* Початкова гучність */
+}
+
+.volume-thumb {
+    position: absolute;
+    top: -5px;
+    width: 15px; /* Або фактична ширина */
+    height: 15px; /* Або фактична висота */
+    background-color: #fff;
+    border-radius: 50%;
+    cursor: grab;
+    transform: translateX(-50%); /* Додайте це для центрування */
+}
+
+.track-item-button.active {
+    background-color: rgba(255, 255, 255, 0.3); /* Змінений колір фону для активного треку */
+    /* Додаткові стилі за бажанням */
+}
+
+/* Стилі для анімованого фону (тепер застосовується до body з класом) */
+body.animated-background {
+    background: linear-gradient(45deg, #252055, #040421, #151556); /* Діагональний градієнт */
+   /* background: linear-gradient(45deg, #0a0a0a, #b6b6b6, #141414); /* Діагональний градієнт */
+    background-size: 200% 200%; /* Збільшуємо розмір по обох осях */
+    animation: diagonal-gradient 40s ease infinite alternate; /* Змінюємо назву анімації */
+}
+
+@keyframes diagonal-gradient {
+    0% {
+        background-position: 0% 0%; /* Початкове положення у верхньому лівому куті */
+    }
+    100% {
+        background-position: 100% 100%; /* Кінцеве положення у нижньому правому куті */
+    }
+}
+
+.animated-background {
+    /* Ці стилі більше не застосовуються безпосередньо до div, а до body з класом */
+    width: 100vw;
+    height: 100vh;
+}

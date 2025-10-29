@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Отримання випадкових альбомів
-    fetch('http://192.168.88.41:5000/api/Album/10random-album')
+    fetch('https://webproject-latest.onrender.com/api/Album/5random-albums')
         .then(response => response.json())
         .then(albums => {
             renderRandomAlbums(albums);
@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
         .catch(error => console.error('Помилка завантаження випадкових альбомів:', error));
 
     // Отримання випадкових артистів
-    fetch('http://192.168.88.41:5000/api/Artist/5random-artists')
+    fetch('https://webproject-latest.onrender.com/api/Artist/5random-artists')
         .then(response => response.json())
         .then(artists => {
             console.log("Отримані артисти перед рендерингом:", artists);
@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
         .catch(error => console.error('Помилка завантаження випадкових артистів:', error));
 
     // Отримання випадкових треків
-    fetch('http://192.168.88.41:5000/api/Music/10random-music')
+    fetch('https://webproject-latest.onrender.com/api/Music/10random-music')
         .then(response => response.json())
         .then(tracks => {
             console.log("Отримані треки перед рендерингом:", tracks);

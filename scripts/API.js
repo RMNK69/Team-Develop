@@ -1,4 +1,4 @@
-const API_URL = 'https://192.168.88.41:5000/api/';
+const API_URL = 'https://webproject-latest.onrender.com/api/';
 
 const API = {
     login: async (email, password) => {

@@ -1,4 +1,4 @@
-// album_page.js
+
 
 function getUrlParam(param) {
     const urlParams = new URLSearchParams(window.location.search);

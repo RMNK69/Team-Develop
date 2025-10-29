@@ -82,7 +82,7 @@ function renderRandomTracks(tracks) {
         trackItem.dataset.trackId = track.Id;
         trackItem.innerHTML = `
             <div class="track-cover-container">
-                <img src="${track.CoverUrl}" alt="${track.Title}" class="track-cover">
+                <img src="https://webproject-latest.onrender.com/api/Image/Covers/${track.CoverUrl}" alt="${track.Title}" class="track-cover">
             </div>
             <div class="track-info">
                 <h3 class="track-title">${track.Title}</h3>
@@ -112,7 +112,7 @@ function renderArtists(artists) {
         artistItem.dataset.artistId = artist.Id;
         artistItem.innerHTML = `
             <div class="artist-avatar-container">
-                <img src="${artist.AvatarUrl}" alt="${artist.Name}" class="artist-avatar">
+                <img src="https://webproject-latest.onrender.com/api/Image/UIA/${artist.AvatarUrl}" alt="${artist.Name}" class="artist-avatar">
             </div>
             <div class="artist-name">${artist.Name}</div>
         `;
@@ -135,7 +135,7 @@ function renderRandomAlbums(albums) {
         albumItem.dataset.albumId = album.Id; // Припускаємо наявність Id
         albumItem.innerHTML = `
             <div class="album-cover-container">
-                <img src="${album.CoverUrl}" alt="${album.Title}" class="album-cover">
+                <img src="https://webproject-latest.onrender.com/api/Image/Covers/${album.CoverUrl}" alt="${album.Title}" class="album-cover">
             </div>
             <div class="album-info">
                 <h3 class="album-title">${album.Title}</h3>

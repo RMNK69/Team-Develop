@@ -36,8 +36,8 @@ function formatTime(seconds) {
 }
 
 function loadTrack(track, index) {
-    console.log('Завантаження треку:', track.title, 'URL:', track.audioSrc, 'Індекс:', index);
-    audioPlayerElement.src = track.audioSrc || '';
+    console.log('Завантаження треку:', track.Title, 'ID:', track.Id, 'Індекс:', index);
+    audioPlayerElement.src = `https://webproject-latest.onrender.com/api/Music/file/${track.Id}`;
     currentTrackIndex = index;
     updateTrackInfoDisplay(track);
     updateActiveTrackClass();
@@ -49,7 +49,7 @@ function loadTrack(track, index) {
 
 function updateTrackInfoDisplay(track) {
     if (trackInfoDisplay) {
-        trackInfoDisplay.textContent = `${track.artist} - ${track.title}`;
+        trackInfoDisplay.textContent = `${track.Artist.Name} - ${track.Title}`;
     }
 }
 
@@ -122,7 +122,7 @@ document.addEventListener('DOMContentLoaded', () => {
         .then(album => {
             if (album) {
                 document.title = `${album.Artist.Name} - ${album.Title} - Note`; 
-                albumCoverElement.src = `https://webproject-latest.onrender.com/api/Image/${album.AlbCoverUrl}`;
+                albumCoverElement.src = `https://webproject-latest.onrender.com/api/Image/Covers/${album.AlbCoverUrl}`;
                 albumTitleElement.textContent = album.Title;
                 albumArtistElement.textContent = album.Artist.Name;
                 albumYearElement.textContent = album.MusicInAlbum[0].Year;

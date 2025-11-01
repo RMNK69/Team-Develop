@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Отримання випадкових альбомів
-    fetch('https://webproject-latest.onrender.com/api/Album/5random-albums')
+    fetch('https://webproject-latest.onrender.com/api/Album/10random-album')
         .then(response => response.json())
         .then(albums => {
             renderRandomAlbums(albums);

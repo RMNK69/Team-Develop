@@ -122,7 +122,7 @@ document.addEventListener('DOMContentLoaded', () => {
         .then(album => {
             if (album) {
                 document.title = `${album.Artist.Name} - ${album.Title} - Note`; 
-                albumCoverElement.src = `https://webproject-latest.onrender.com/api/Image/Covers/${album.AlbCoverUrl}`;
+                albumCoverElement.src = `https://webproject-latest.onrender.com/api/Image/${album.AlbCoverUrl}`;
                 albumTitleElement.textContent = album.Title;
                 albumArtistElement.textContent = album.Artist.Name;
                 albumYearElement.textContent = album.MusicInAlbum[0].Year; // Using Year from first track

@@ -1,5 +1,3 @@
-
-
 function getUrlParam(param) {
     const urlParams = new URLSearchParams(window.location.search);
     return urlParams.get(param);
@@ -119,23 +117,20 @@ function setVolume(event) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    fetch('../data.json')
+    fetch(`https://webproject-latest.onrender.com/api/Album/${albumId}`)
         .then(response => response.json())
-        .then(data => {
-            const album = data.albums.find(album => album.id === albumId);
-
+        .then(album => {
             if (album) {
-                document.title = `${album.artist} - ${album.title} - Note`; // Встановлюємо заголовок сторінки
-                albumCoverElement.src = album.cover;
-                albumTitleElement.textContent = album.title;
-                albumArtistElement.textContent = album.artist;
-                albumYearElement.textContent = album.year;
-                albumTrackCountElement.textContent = album.tracks.length;
+                document.title = `${album.Artist.Name} - ${album.Title} - Note`; 
+                albumCoverElement.src = `https://webproject-latest.onrender.com/api/Image/Covers/${album.AlbCoverUrl}`;
+                albumTitleElement.textContent = album.Title;
+                albumArtistElement.textContent = album.Artist.Name;
+                albumYearElement.textContent = album.MusicInAlbum[0].Year; // Using Year from first track
+                albumTrackCountElement.textContent = album.CountOfMusicInAlbum;
 
-                currentAlbumTracks = data.tracks.filter(track => album.tracks.includes(track.id));
-                currentAlbumTracks.sort((a, b) => a.position - b.position);
+                currentAlbumTracks = album.MusicInAlbum;
 
-                albumTracklistElement.innerHTML = ''; // Очищаємо попередній список
+                albumTracklistElement.innerHTML = '';
 
                 let initialTrackLoaded = false;
 
@@ -145,7 +140,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     listItem.innerHTML = `
                         <button class="track-item-button">
                             <div class="track-info">
-                                <span class="track-artist">${track.artist}</span> - <span class="track-title">${track.title}</span>
+                                <span class="track-artist">${track.Artist.Name}</span> - <span class="track-title">${track.Title}</span>
                             </div>
                         </button>
                     `;
@@ -155,28 +150,25 @@ document.addEventListener('DOMContentLoaded', () => {
                     });
                     albumTracklistElement.appendChild(listItem);
 
-                    // Якщо це трек, який потрібно завантажити першим
-                    if (initialTrackId && track.id === initialTrackId && !initialTrackLoaded) {
+                    if (initialTrackId && track.Id === initialTrackId && !initialTrackLoaded) {
                         loadTrack(track, index);
                         initialTrackLoaded = true;
                     }
                 });
 
-                // Якщо initialTrackId був переданий, але не знайдений у списку,
-                // або якщо initialTrackId не був переданий, завантажуємо перший трек
                 if (currentAlbumTracks.length > 0 && !initialTrackLoaded) {
                     loadTrack(currentAlbumTracks[0], 0);
                 }
                 updateActiveTrackClass();
 
             } else {
-                document.title = 'Альбом не знайдено - Note'; // Встановлюємо заголовок, якщо альбом не знайдено
+                document.title = 'Альбом не знайдено - Note';
                 albumTitleElement.textContent = 'Альбом не знайдено';
             }
         })
         .catch(error => {
             console.error('Помилка завантаження даних:', error);
-            document.title = 'Помилка - Note'; // Встановлюємо заголовок у випадку помилки
+            document.title = 'Помилка - Note';
         });
 
     audioPlayerElement.addEventListener('timeupdate', () => {

@@ -78,18 +78,23 @@ function renderRandomTracks(tracks) {
     tracks.forEach(track => {
         const trackItem = document.createElement('div');
         trackItem.classList.add('track-item');
-        trackItem.dataset.albumId = track.AlbumId;
+        trackItem.dataset.albumId = track.Album?.Id || '';
         trackItem.dataset.trackId = track.Id;
+
+        // Використання API для завантаження обкладинки треку
+        const coverUrl = `http://webproject-latest.onrender.com/api/music/cover/${track.Id}`;
+
         trackItem.innerHTML = `
             <div class="track-cover-container">
-                <img src="https://webproject-latest.onrender.com/api/Image/Covers/${track.CoverUrl}" alt="${track.Title}" class="track-cover">
+                <img src="${coverUrl}" alt="${track.Title}" class="track-cover">
             </div>
             <div class="track-info">
                 <h3 class="track-title">${track.Title}</h3>
-                <p class="track-artist-album">${track.Artist} - ${track.AlbumTitle || ''}</p>
+                <p class="track-artist-album">${track.Artist?.Name || 'Невідомо'} - ${track.Album?.Title || ''}</p>
             </div>
         `;
         tracksContainer.appendChild(trackItem);
+
 
         trackItem.addEventListener('click', function(event) {
             if (event.target.tagName !== 'AUDIO' && event.target.parentNode.tagName !== 'AUDIO') {
@@ -104,15 +109,17 @@ function renderRandomTracks(tracks) {
 function renderArtists(artists) {
     const artistsContainer = document.getElementById('artists');
     artistsContainer.innerHTML = '';
-
-
     artists.forEach(artist => {
         const artistItem = document.createElement('div');
         artistItem.classList.add('artist-item');
         artistItem.dataset.artistId = artist.Id;
+
+        // URL до аватарки через API
+        const avatarUrl = `http://webproject-latest.onrender.com/api/artist/avatar/${artist.Id}`;
+
         artistItem.innerHTML = `
             <div class="artist-avatar-container">
-                <img src="https://webproject-latest.onrender.com/api/Image/UIA/${artist.AvatarUrl}" alt="${artist.Name}" class="artist-avatar">
+                <img src="${avatarUrl}" alt="${artist.Name}" class="artist-avatar">
             </div>
             <div class="artist-name">${artist.Name}</div>
         `;
@@ -132,14 +139,18 @@ function renderRandomAlbums(albums) {
     albums.forEach(album => {
         const albumItem = document.createElement('div');
         albumItem.classList.add('album-item');
-        albumItem.dataset.albumId = album.Id; // Припускаємо наявність Id
+        albumItem.dataset.albumId = album.Id;
+
+        // URL до обкладинки альбому через API
+        const coverUrl = `http://webproject-latest.onrender.com/api/album/AlbumCover/${album.Id}`;
+
         albumItem.innerHTML = `
             <div class="album-cover-container">
-                <img src="https://webproject-latest.onrender.com/api/Image/Covers/${album.CoverUrl}" alt="${album.Title}" class="album-cover">
+                <img src="${coverUrl}" alt="${album.Title}" class="album-cover">
             </div>
             <div class="album-info">
                 <h3 class="album-title">${album.Title}</h3>
-                <p class="album-artist">${album.Artist}</p>
+                <p class="album-artist">${album.Artist?.Name || 'Невідомо'}</p>
             </div>
         `;
         albumsContainer.appendChild(albumItem);
@@ -190,6 +201,7 @@ function initializeConditionalScroll() {
                 const target = Math.max(0, rollContainer.scrollLeft - scrollAmount);
                 scrollHorizontallySmooth(rollContainer, target, scrollDuration);
             });
+
 
             scrollRightButton.addEventListener('click', () => {
                 const target = Math.min(rollContainer.scrollWidth - rollContainer.offsetWidth, rollContainer.scrollLeft + scrollAmount);

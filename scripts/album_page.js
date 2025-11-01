@@ -125,7 +125,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 albumCoverElement.src = `https://webproject-latest.onrender.com/api/Image/${album.AlbCoverUrl}`;
                 albumTitleElement.textContent = album.Title;
                 albumArtistElement.textContent = album.Artist.Name;
-                albumYearElement.textContent = album.MusicInAlbum[0].Year; // Using Year from first track
+                albumYearElement.textContent = album.MusicInAlbum[0].Year;
                 albumTrackCountElement.textContent = album.CountOfMusicInAlbum;
 
                 currentAlbumTracks = album.MusicInAlbum;

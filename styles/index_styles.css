@@ -12,7 +12,7 @@ body {
 
 .artist-banner {
     width: auto; /* Фіксована ширина банера */
-    height: 670px; /* Фіксована висота банера */
+    height: 742px; /* Фіксована висота банера */
     position: relative; /* Для позиціонування оверлея */
     overflow: hidden;
     display: flex;

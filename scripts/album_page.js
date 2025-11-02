@@ -4,7 +4,7 @@ function getUrlParam(param) {
 }
 
 const albumId = getUrlParam('albumId');
-const initialTrackId = getUrlParam('trackId'); // Отримуємо trackId з URL
+const initialTrackId = getUrlParam('trackId'); 
 const albumCoverElement = document.getElementById('album-cover');
 const albumTitleElement = document.getElementById('album-title');
 const albumArtistElement = document.getElementById('album-artist');
@@ -35,8 +35,30 @@ function formatTime(seconds) {
     return `${minutes}:${remainingSeconds}`;
 }
 
+// --- Функція завантаження і кешування зображень у localStorage ---
+function loadAndCacheImage(imgElement, url, storageKey) {
+    const cached = localStorage.getItem(storageKey);
+    if (cached) {
+        imgElement.src = cached;
+    } else {
+        fetch(url)
+            .then(res => res.blob())
+            .then(blob => {
+                const reader = new FileReader();
+                reader.onload = () => {
+                    imgElement.src = reader.result;
+                    try {
+                        localStorage.setItem(storageKey, reader.result);
+                    } catch (e) {
+                        console.warn('LocalStorage переповнений, не зберегли зображення', e);
+                    }
+                };
+                reader.readAsDataURL(blob);
+            });
+    }
+}
+
 function loadTrack(track, index) {
-    console.log('Завантаження треку:', track.Title, 'ID:', track.Id, 'Індекс:', index);
     audioPlayerElement.src = `https://webproject-latest.onrender.com/api/Music/file/${track.Id}`;
     currentTrackIndex = index;
     updateTrackInfoDisplay(track);
@@ -57,9 +79,7 @@ function updateActiveTrackClass() {
     const trackItems = document.querySelectorAll('.track-item-li');
     trackItems.forEach((item, index) => {
         item.classList.remove('active');
-        if (index === currentTrackIndex) {
-            item.classList.add('active');
-        }
+        if (index === currentTrackIndex) item.classList.add('active');
     });
 }
 
@@ -76,10 +96,7 @@ function playPauseTrack() {
 
 function playPreviousTrack() {
     if (currentAlbumTracks.length > 0) {
-        currentTrackIndex--;
-        if (currentTrackIndex < 0) {
-            currentTrackIndex = currentAlbumTracks.length - 1;
-        }
+        currentTrackIndex = (currentTrackIndex - 1 + currentAlbumTracks.length) % currentAlbumTracks.length;
         loadTrack(currentAlbumTracks[currentTrackIndex], currentTrackIndex);
         if (isPlaying) audioPlayerElement.play();
     }
@@ -87,10 +104,7 @@ function playPreviousTrack() {
 
 function playNextTrack() {
     if (currentAlbumTracks.length > 0) {
-        currentTrackIndex++;
-        if (currentTrackIndex >= currentAlbumTracks.length) {
-            currentTrackIndex = 0;
-        }
+        currentTrackIndex = (currentTrackIndex + 1) % currentAlbumTracks.length;
         loadTrack(currentAlbumTracks[currentTrackIndex], currentTrackIndex);
         if (isPlaying) audioPlayerElement.play();
     }
@@ -109,8 +123,7 @@ function setVolume(event) {
     if (isDraggingVolume) {
         const volumeSliderRect = volumeSliderContainer.getBoundingClientRect();
         const clickX = event.clientX - volumeSliderRect.left;
-        let volumePercent = clickX / volumeSliderRect.width;
-        volumePercent = Math.max(0, Math.min(1, volumePercent));
+        let volumePercent = Math.max(0, Math.min(1, clickX / volumeSliderRect.width));
         audioPlayerElement.volume = volumePercent;
         volumeSlider.style.width = `${volumePercent * 100}%`;
     }
@@ -118,53 +131,54 @@ function setVolume(event) {
 
 document.addEventListener('DOMContentLoaded', () => {
     fetch(`https://webproject-latest.onrender.com/api/Album/${albumId}`)
-        .then(response => response.json())
+        .then(res => res.json())
         .then(album => {
-            if (album) {
-                document.title = `${album.Artist.Name} - ${album.Title} - Note`; 
-                albumCoverElement.src = `https://webproject-latest.onrender.com/api/Image/Covers/${album.AlbCoverUrl}`;
-                albumTitleElement.textContent = album.Title;
-                albumArtistElement.textContent = album.Artist.Name;
-                albumYearElement.textContent = album.MusicInAlbum[0].Year;
-                albumTrackCountElement.textContent = album.CountOfMusicInAlbum;
-
-                currentAlbumTracks = album.MusicInAlbum;
-
-                albumTracklistElement.innerHTML = '';
-
-                let initialTrackLoaded = false;
-
-                currentAlbumTracks.forEach((track, index) => {
-                    const listItem = document.createElement('li');
-                    listItem.classList.add('track-item-li');
-                    listItem.innerHTML = `
-                        <button class="track-item-button">
-                            <div class="track-info">
-                                <span class="track-artist">${track.Artist.Name}</span> - <span class="track-title">${track.Title}</span>
-                            </div>
-                        </button>
-                    `;
-                    listItem.addEventListener('click', () => {
-                        loadTrack(track, index);
-                        if (isPlaying) audioPlayerElement.play();
-                    });
-                    albumTracklistElement.appendChild(listItem);
-
-                    if (initialTrackId && track.Id === initialTrackId && !initialTrackLoaded) {
-                        loadTrack(track, index);
-                        initialTrackLoaded = true;
-                    }
-                });
-
-                if (currentAlbumTracks.length > 0 && !initialTrackLoaded) {
-                    loadTrack(currentAlbumTracks[0], 0);
-                }
-                updateActiveTrackClass();
-
-            } else {
+            if (!album) {
                 document.title = 'Альбом не знайдено - Note';
                 albumTitleElement.textContent = 'Альбом не знайдено';
+                return;
             }
+
+            document.title = `${album.Artist.Name} - ${album.Title} - Note`;
+
+            // --- Кешуємо обкладинку альбому ---
+            loadAndCacheImage(albumCoverElement, `https://webproject-latest.onrender.com/api/Image/Covers/${album.AlbCoverUrl}`, `albumCover_${albumId}`);
+
+            albumTitleElement.textContent = album.Title;
+            albumArtistElement.textContent = album.Artist.Name;
+            albumYearElement.textContent = album.MusicInAlbum[0].Year;
+            albumTrackCountElement.textContent = album.CountOfMusicInAlbum;
+
+            currentAlbumTracks = album.MusicInAlbum;
+            albumTracklistElement.innerHTML = '';
+
+            let initialTrackLoaded = false;
+            currentAlbumTracks.forEach((track, index) => {
+                const listItem = document.createElement('li');
+                listItem.classList.add('track-item-li');
+                listItem.innerHTML = `
+                    <button class="track-item-button">
+                        <div class="track-info">
+                            <span class="track-artist">${track.Artist.Name}</span> - <span class="track-title">${track.Title}</span>
+                        </div>
+                    </button>
+                `;
+                listItem.addEventListener('click', () => {
+                    loadTrack(track, index);
+                    if (isPlaying) audioPlayerElement.play();
+                });
+                albumTracklistElement.appendChild(listItem);
+
+                if (initialTrackId && track.Id === initialTrackId && !initialTrackLoaded) {
+                    loadTrack(track, index);
+                    initialTrackLoaded = true;
+                }
+            });
+
+            if (currentAlbumTracks.length > 0 && !initialTrackLoaded) {
+                loadTrack(currentAlbumTracks[0], 0);
+            }
+            updateActiveTrackClass();
         })
         .catch(error => {
             console.error('Помилка завантаження даних:', error);
@@ -172,42 +186,21 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
     audioPlayerElement.addEventListener('timeupdate', () => {
-        const progressPercent = (audioPlayerElement.currentTime / audioPlayerElement.duration) * 100;
-        progress.style.width = `${progressPercent}%`;
+        progress.style.width = `${(audioPlayerElement.currentTime / audioPlayerElement.duration) * 100}%`;
         currentTimeDisplay.textContent = formatTime(audioPlayerElement.currentTime);
     });
 
-    progressBar.addEventListener('mousedown', (event) => {
-        isDraggingProgress = true;
-        updateProgress(event);
-    });
+    progressBar.addEventListener('mousedown', (event) => { isDraggingProgress = true; updateProgress(event); });
+    document.addEventListener('mousemove', updateProgress);
+    document.addEventListener('mouseup', () => { isDraggingProgress = false; });
 
-    document.addEventListener('mousemove', (event) => {
-        updateProgress(event);
-    });
-
-    document.addEventListener('mouseup', () => {
-        isDraggingProgress = false;
-    });
-
-    volumeSliderContainer.addEventListener('mousedown', (event) => {
-        isDraggingVolume = true;
-        setVolume(event);
-    });
-
-    document.addEventListener('mousemove', (event) => {
-        setVolume(event);
-    });
-
-    document.addEventListener('mouseup', () => {
-        isDraggingVolume = false;
-    });
+    volumeSliderContainer.addEventListener('mousedown', (event) => { isDraggingVolume = true; setVolume(event); });
+    document.addEventListener('mousemove', setVolume);
+    document.addEventListener('mouseup', () => { isDraggingVolume = false; });
 
     playPauseButton.addEventListener('click', playPauseTrack);
     prevTrackButton.addEventListener('click', playPreviousTrack);
     nextTrackButton.addEventListener('click', playNextTrack);
 
-    audioPlayerElement.addEventListener('ended', () => {
-        playNextTrack();
-    });
+    audioPlayerElement.addEventListener('ended', playNextTrack);
 });

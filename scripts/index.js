@@ -1,163 +1,227 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const tracklistContainer = document.getElementById('tracklist-container');
-    const albumsContainer = document.getElementById('albums-container');
-    const artistBannerImage = document.getElementById('artist-banner-image');
-    const artistLogoContainer = document.getElementById('artist-logo-container');
-    const bannerLogoButton = document.querySelector('.banner-logo');
-    const footerLogoButton = document.querySelector('.footer-logo');
+    const mainMenu = document.getElementById('mainMenu').querySelector('ul');
+    const jwtToken = localStorage.getItem('jwtToken');
 
-    const urlParams = new URLSearchParams(window.location.search);
-    const artistId = urlParams.get('artistId');
+    if (jwtToken) {
+        mainMenu.innerHTML = `
+            <li><a href="/index.html" id="logoutBtn">Вийти з аккаунту</a></li>
+            <li><a href="/my_playlists.html">Мої плейлісти</a></li>
+        `;
 
-    if (!artistId) {
-        console.error('ID виконавця не знайдено в параметрах URL.');
-        document.title = 'Виконавець не знайдено - Note';
-        return;
-    }
-
-    const apiUrl = `https://webproject-latest.onrender.com/api/Artist/artist/${artistId}`;
-    const randomTracksUrl = `https://webproject-latest.onrender.com/api/Artist/5randomMusic/ArtistId/${artistId}`;
-
-    // --- Перевірка кешу виконавця ---
-    const cachedArtist = sessionStorage.getItem(`artist_${artistId}`);
-    if (cachedArtist) {
-        renderArtist(JSON.parse(cachedArtist));
-    } else {
-        fetch(apiUrl)
-            .then(response => {
-                if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
-                return response.json();
-            })
-            .then(artistData => {
-                if (!artistData) {
-                    console.error(`Виконавця з ID "${artistId}" не знайдено.`);
-                    document.title = 'Виконавець не знайдено - Note';
-                    return;
-                }
-                sessionStorage.setItem(`artist_${artistId}`, JSON.stringify(artistData));
-                renderArtist(artistData);
-            })
-            .catch(error => {
-                console.error('Помилка завантаження даних виконавця:', error);
-                document.title = 'Помилка - Note';
-            });
-    }
-
-    // --- Перевірка кешу треків ---
-    const cachedTracks = sessionStorage.getItem(`randomTracks_${artistId}`);
-    if (cachedTracks) {
-        renderTracks(JSON.parse(cachedTracks));
-    } else {
-        fetch(randomTracksUrl)
-            .then(res => {
-                if (!res.ok) throw new Error(`HTTP error! Status: ${res.status}`);
-                return res.json();
-            })
-            .then(tracks => {
-                if (!tracks || tracks.length === 0) {
-                    tracklistContainer.innerHTML = '<p>У цього виконавця поки немає треків.</p>';
-                    return;
-                }
-                sessionStorage.setItem(`randomTracks_${artistId}`, JSON.stringify(tracks));
-                renderTracks(tracks);
-            })
-            .catch(err => {
-                console.error('Помилка завантаження треків:', err);
-                tracklistContainer.innerHTML = '<p>Не вдалося завантажити треки виконавця.</p>';
-            });
-    }
-
-    // --- Функція рендерингу виконавця (банер, логотип, альбоми) ---
-    function renderArtist(artistData) {
-        document.title = `${artistData.Name || artistData.name} - Note`;
-
-        // --- Банер ---
-        artistBannerImage.src = artistData.BannerUrl
-            ? artistData.BannerUrl
-            : `https://webproject-latest.onrender.com/api/Artist/banner/${artistId}`;
-        artistBannerImage.alt = `Банер виконавця ${artistData.Name || artistData.name}`;
-
-        // --- Логотип ---
-        artistLogoContainer.innerHTML = '';
-        const logoImg = document.createElement('img');
-        logoImg.src = artistData.LogoUrl
-            ? artistData.LogoUrl
-            : `https://webproject-latest.onrender.com/api/Artist/logo/${artistId}`;
-        logoImg.alt = `Логотип ${artistData.Name || artistData.name}`;
-        artistLogoContainer.appendChild(logoImg);
-        artistLogoContainer.style.opacity = '1';
-
-        // --- Альбоми ---
-        albumsContainer.innerHTML = '';
-        const albums = artistData.Albums || artistData.albums || [];
-        if (albums.length === 0) {
-            albumsContainer.innerHTML = '<p>У цього виконавця поки немає альбомів.</p>';
-        } else {
-            albums.forEach(album => {
-                const albumId = album.Id || album.id;
-                const albumTitle = album.Title || album.title;
-                const albumArtist = album.Artist?.Name || artistData.Name || 'Невідомо';
-                const coverUrl = `https://webproject-latest.onrender.com/api/album/AlbumCover/${albumId}`;
-
-                const albumItem = document.createElement('div');
-                albumItem.classList.add('album-item');
-                albumItem.dataset.albumId = albumId;
-
-                albumItem.innerHTML = `
-                    <div class="album-cover-container">
-                        <img src="${coverUrl}" alt="Обкладинка альбому ${albumTitle}" class="album-cover">
-                    </div>
-                    <div class="album-info">
-                        <h3 class="album-title">${albumTitle}</h3>
-                        <p class="album-artist">${albumArtist}</p>
-                    </div>
-                `;
-
-                albumItem.addEventListener('click', () => {
-                    window.location.href = `album_page.html?albumId=${albumId}`;
-                });
-
-                albumsContainer.appendChild(albumItem);
+        const logoutBtn = document.getElementById('logoutBtn');
+        if (logoutBtn) {
+            logoutBtn.addEventListener('click', function() {
+                localStorage.removeItem('jwtToken');
+                window.location.href = '/login_page.html';
             });
         }
-
-        // --- Кнопки логотипів ---
-        bannerLogoButton?.addEventListener('click', () => window.location.href = 'main_page.html');
-        footerLogoButton?.addEventListener('click', () => window.location.href = 'main_page.html');
+    } else {
+        mainMenu.innerHTML = `
+            <li><a href="/registration_page.html">Реєстрація</a></li>
+            <li><a href="/login_page.html">Авторизація</a></li>
+        `;
     }
 
-    // --- Функція рендерингу треків ---
-    function renderTracks(tracks) {
-        tracklistContainer.innerHTML = '';
-        tracks.forEach(track => {
-            const trackId = track.Id || track.id;
-            const albumId = track.Album?.Id || track.albumId;
-            const title = track.Title || track.title;
-            const artistName = track.Artist?.Name || 'Невідомо';
-            const coverUrl = `https://webproject-latest.onrender.com/api/music/cover/${trackId}`;
+    // Отримання випадкових альбомів
+    fetch('https://webproject-latest.onrender.com/api/Album/10random-album')
+        .then(response => response.json())
+        .then(albums => {
+            renderRandomAlbums(albums);
+        })
+        .catch(error => console.error('Помилка завантаження випадкових альбомів:', error));
 
-            const listItem = document.createElement('li');
-            listItem.classList.add('track-item-li');
-            listItem.innerHTML = `
-                <button class="track-item">
-                    <div class="track-cover">
-                        <img src="${coverUrl}" alt="Обкладинка треку ${title}">
-                    </div>
-                    <div class="track-info">
-                        <span class="artist-name">${artistName}</span>
-                        <span class="minus"> - </span>
-                        <span class="track-title">${title}</span>
-                    </div>
-                </button>
-            `;
+    // Отримання випадкових артистів
+    fetch('https://webproject-latest.onrender.com/api/Artist/5random-artists')
+        .then(response => response.json())
+        .then(artists => {
+            console.log("Отримані артисти перед рендерингом:", artists);
+            renderArtists(artists);
+        })
+        .catch(error => console.error('Помилка завантаження випадкових артистів:', error));
 
-            listItem.addEventListener('click', () => {
-                if (albumId && trackId) {
-                    window.location.href = `album_page.html?albumId=${albumId}&trackId=${trackId}`;
-                }
+    // Отримання випадкових треків
+    fetch('https://webproject-latest.onrender.com/api/Music/10random-music')
+        .then(response => response.json())
+        .then(tracks => {
+            console.log("Отримані треки перед рендерингом:", tracks);
+            renderRandomTracks(tracks);
+        })
+        .catch(error => console.error('Помилка завантаження випадкових треків:', error));
+
+    // Завантаження UI елементів (логотипу)
+    fetch('data.json')
+        .then(response => response.json())
+        .then(data => {
+            renderLogo(data.ui);
+            initializeConditionalScroll();
+        })
+        .catch(error => console.error('Помилка завантаження даних UI:', error));
+});
+
+function findUIElement(uiElements, id) {
+    return uiElements.find(element => element.id === id);
+}
+
+function renderLogo(uiElements) {
+    const logoData = findUIElement(uiElements, 'logo_and_title');
+    const logoImg = document.querySelector('.logo');
+    if (logoData && logoImg) {
+        logoImg.src = logoData.src;
+        logoImg.alt = logoData.description;
+    }
+}
+
+function renderRandomTracks(tracks) {
+    const tracksContainer = document.getElementById('random-tracks');
+    tracksContainer.innerHTML = '';
+
+    tracks.forEach(track => {
+        const trackItem = document.createElement('div');
+        trackItem.classList.add('track-item');
+        trackItem.dataset.albumId = track.Album?.Id || '';
+        trackItem.dataset.trackId = track.Id;
+
+        // Використання API для завантаження обкладинки треку
+        const coverUrl = `http://webproject-latest.onrender.com/api/music/cover/${track.Id}`;
+
+        trackItem.innerHTML = `
+            <div class="track-cover-container">
+                <img src="${coverUrl}" alt="${track.Title}" class="track-cover">
+            </div>
+            <div class="track-info">
+                <h3 class="track-title">${track.Title}</h3>
+                <p class="track-artist-album">${track.Artist?.Name || 'Невідомо'} - ${track.Album?.Title || ''}</p>
+            </div>
+        `;
+        tracksContainer.appendChild(trackItem);
+
+
+        trackItem.addEventListener('click', function(event) {
+            if (event.target.tagName !== 'AUDIO' && event.target.parentNode.tagName !== 'AUDIO') {
+                const albumId = this.dataset.albumId;
+                const trackId = this.dataset.trackId;
+                window.location.href = `album_page.html?albumId=${albumId}&trackId=${trackId}`;
+            }
+        });
+    });
+}
+
+function renderArtists(artists) {
+    const artistsContainer = document.getElementById('artists');
+    artistsContainer.innerHTML = '';
+    artists.forEach(artist => {
+        const artistItem = document.createElement('div');
+        artistItem.classList.add('artist-item');
+        artistItem.dataset.artistId = artist.Id;
+
+        // URL до аватарки через API
+        const avatarUrl = `http://webproject-latest.onrender.com/api/artist/avatar/${artist.Id}`;
+
+        artistItem.innerHTML = `
+            <div class="artist-avatar-container">
+                <img src="${avatarUrl}" alt="${artist.Name}" class="artist-avatar">
+            </div>
+            <div class="artist-name">${artist.Name}</div>
+        `;
+        artistsContainer.appendChild(artistItem);
+
+        artistItem.addEventListener('click', function() {
+            const artistId = this.dataset.artistId;
+            window.location.href = `artist_page.html?artistId=${artistId}`;
+        });
+    });
+}
+
+function renderRandomAlbums(albums) {
+    const albumsContainer = document.getElementById('random-albums');
+    albumsContainer.innerHTML = '';
+
+    albums.forEach(album => {
+        const albumItem = document.createElement('div');
+        albumItem.classList.add('album-item');
+        albumItem.dataset.albumId = album.Id;
+
+        // URL до обкладинки альбому через API
+        const coverUrl = `http://webproject-latest.onrender.com/api/album/AlbumCover/${album.Id}`;
+
+        albumItem.innerHTML = `
+            <div class="album-cover-container">
+                <img src="${coverUrl}" alt="${album.Title}" class="album-cover">
+            </div>
+            <div class="album-info">
+                <h3 class="album-title">${album.Title}</h3>
+                <p class="album-artist">${album.Artist?.Name || 'Невідомо'}</p>
+            </div>
+        `;
+        albumsContainer.appendChild(albumItem);
+
+        albumItem.addEventListener('click', function() {
+            const albumId = this.dataset.albumId;
+            window.location.href = `album_page.html?albumId=${albumId}`;
+        });
+    });
+}
+
+function renderRollItems(container, items, templateCallback) {
+    container.innerHTML = items.map(templateCallback).join('');
+}
+
+function scrollHorizontallySmooth(element, targetScrollLeft, duration) {
+    const startScrollLeft = element.scrollLeft;
+    const startTime = performance.now();
+
+    const animate = (currentTime) => {
+        const elapsedTime = currentTime - startTime;
+        const progress = Math.min(1, elapsedTime / duration);
+        const easedProgress = progress;
+
+        element.scrollLeft = startScrollLeft + (targetScrollLeft - startScrollLeft) * easedProgress;
+
+        if (progress < 1) {
+            requestAnimationFrame(animate);
+        }
+    };
+
+    requestAnimationFrame(animate);
+}
+
+function initializeConditionalScroll() {
+    const horizontalRollContainers = document.querySelectorAll('.horizontal-roll-container');
+
+    horizontalRollContainers.forEach(container => {
+        const rollContainer = container.querySelector('.roll-container');
+        const scrollLeftButton = container.querySelector('.scroll-left');
+        const scrollRightButton = container.querySelector('.scroll-right');
+
+        if (rollContainer && scrollLeftButton && scrollRightButton) {
+            const scrollAmount = rollContainer.offsetWidth * 0.5;
+            const scrollDuration = 500;
+
+            scrollLeftButton.addEventListener('click', () => {
+                const target = Math.max(0, rollContainer.scrollLeft - scrollAmount);
+                scrollHorizontallySmooth(rollContainer, target, scrollDuration);
             });
 
-            tracklistContainer.appendChild(listItem);
-        });
-    }
-});
+
+            scrollRightButton.addEventListener('click', () => {
+                const target = Math.min(rollContainer.scrollWidth - rollContainer.offsetWidth, rollContainer.scrollLeft + scrollAmount);
+                scrollHorizontallySmooth(rollContainer, target, scrollDuration);
+            });
+
+            const checkScrollVisibility = () => {
+                if (rollContainer.scrollWidth > rollContainer.offsetWidth) {
+                    scrollLeftButton.style.display = 'block';
+                    scrollRightButton.style.display = 'block';
+                } else {
+                    scrollLeftButton.style.display = 'none';
+                    scrollRightButton.style.display = 'none';
+                }
+            };
+
+
+            checkScrollVisibility();
+            window.addEventListener('resize', checkScrollVisibility);
+            setTimeout(checkScrollVisibility, 500);
+        }
+    });
+}

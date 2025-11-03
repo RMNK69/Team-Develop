@@ -786,7 +786,7 @@
   {
     "id": "logo_and_title",
     "type": "image",
-    "src": "../UI/Logo_and_title.png",
+    "src": "UI/Logo_and_title.png",
     "description": "Логотип з назвою"
   },
   {

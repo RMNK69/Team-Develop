@@ -17,8 +17,8 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     } else {
         mainMenu.innerHTML = `
-            <li><a href="/registration_page.html">Реєстрація</a></li>
-            <li><a href="/login_page.html">Авторизація</a></li>
+            <li><a href="registration_page.html">Реєстрація</a></li>
+            <li><a href="login_page.html">Авторизація</a></li>
         `;
     }
 

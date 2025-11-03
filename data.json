@@ -1,0 +1,806 @@
+{
+  "tracks": [
+    {
+      "id": "muse_apocalypse_please",
+      "title": "Apocalypse Please",
+      "artist": "Muse",
+      "cover": "../Published_Content/Muse/Absolution/Muse_Absolution_album_cover.jpg",
+      "albumId": "absolution_album",
+      "audioSrc": "../Published_Content/Muse/Absolution/Muse_Apocalypse_Please.mp3",
+      "position": 1
+    },
+    {
+      "id": "muse_blackout",
+      "title": "Blackout",
+      "artist": "Muse",
+      "cover": "../Published_Content/Muse/Absolution/Muse_Absolution_album_cover.jpg",
+      "albumId": "absolution_album",
+      "audioSrc": "../Published_Content/Muse/Absolution/Muse_Blackout.mp3",
+      "position": 2
+    },
+    {
+      "id": "muse_butterflies_and_hurricanes",
+      "title": "Butterflies and Hurricanes",
+      "artist": "Muse",
+      "cover": "../Published_Content/Muse/Absolution/Muse_Absolution_album_cover.jpg",
+      "albumId": "absolution_album",
+      "audioSrc": "../Published_Content/Muse/Absolution/Muse_Butterflies_and_Hurricanes.mp3",
+      "position": 3
+    },
+    {
+      "id": "muse_endlessly",
+      "title": "Endlessly",
+      "artist": "Muse",
+      "cover": "../Published_Content/Muse/Absolution/Muse_Absolution_album_cover.jpg",
+      "albumId": "absolution_album",
+      "audioSrc": "../Published_Content/Muse/Absolution/Muse_Endlessly.mp3",
+      "position": 4
+    },
+    {
+      "id": "muse_falling_away_with_you",
+      "title": "Falling Away with You",
+      "artist": "Muse",
+      "cover": "../Published_Content/Muse/Absolution/Muse_Absolution_album_cover.jpg",
+      "albumId": "absolution_album",
+      "audioSrc": "../Published_Content/Muse/Absolution/Muse_Falling_Away_with_You.mp3",
+      "position": 5
+    },
+    {
+      "id": "muse_fury",
+      "title": "Fury",
+      "artist": "Muse",
+      "cover": "../Published_Content/Muse/Absolution/Muse_Absolution_album_cover.jpg",
+      "albumId": "absolution_album",
+      "audioSrc": "../Published_Content/Muse/Absolution/Muse_Fury.mp3",
+      "position": 6
+    },
+    {
+      "id": "muse_hysteria",
+      "title": "Hysteria",
+      "artist": "Muse",
+      "cover": "../Published_Content/Muse/Absolution/Muse_Absolution_album_cover.jpg",
+      "albumId": "absolution_album",
+      "audioSrc": "../Published_Content/Muse/Absolution/Muse_Hysteria.mp3",
+      "position": 7
+    },
+    {
+      "id": "muse_interlude",
+      "title": "Interlude",
+      "artist": "Muse",
+      "cover": "../Published_Content/Muse/Absolution/Muse_Absolution_album_cover.jpg",
+      "albumId": "absolution_album",
+      "audioSrc": "../Published_Content/Muse/Absolution/Muse_Interlude.mp3",
+      "position": 8
+    },
+    {
+      "id": "muse_intro",
+      "title": "Intro",
+      "artist": "Muse",
+      "cover": "../Published_Content/Muse/Absolution/Muse_Absolution_album_cover.jpg",
+      "albumId": "absolution_album",
+      "audioSrc": "../Published_Content/Muse/Absolution/Muse_Intro.mp3",
+      "position": 9
+    },
+    {
+      "id": "muse_ruled_by_secrecy",
+      "title": "Ruled by Secrecy",
+      "artist": "Muse",
+      "cover": "../Published_Content/Muse/Absolution/Muse_Absolution_album_cover.jpg",
+      "albumId": "absolution_album",
+      "audioSrc": "../Published_Content/Muse/Absolution/Muse_Ruled_by_Secrecy.mp3",
+      "position": 10
+    },
+    {
+      "id": "muse_sing_for_absolution",
+      "title": "Sing for Absolution",
+      "artist": "Muse",
+      "cover": "../Published_Content/Muse/Absolution/Muse_Absolution_album_cover.jpg",
+      "albumId": "absolution_album",
+      "audioSrc": "../Published_Content/Muse/Absolution/Muse_Sing_for_Absolution.mp3",
+      "position": 11
+    },
+    {
+      "id": "muse_stockholm_syndrome",
+      "title": "Stockholm Syndrome",
+      "artist": "Muse",
+      "cover": "../Published_Content/Muse/Absolution/Muse_Absolution_album_cover.jpg",
+      "albumId": "absolution_album",
+      "audioSrc": "../Published_Content/Muse/Absolution/Muse_Stockholm_Syndrome.mp3",
+      "position": 12
+    },
+    {
+      "id": "muse_the_small_print",
+      "title": "The Small Print",
+      "artist": "Muse",
+      "cover": "../Published_Content/Muse/Absolution/Muse_Absolution_album_cover.jpg",
+      "albumId": "absolution_album",
+      "audioSrc": "../Published_Content/Muse/Absolution/Muse_The_Small_Print.mp3",
+      "position": 13
+    },
+    {
+      "id": "muse_thoughts_of_a_dying_atheist",
+      "title": "Thoughts of a Dying Atheist",
+      "artist": "Muse",
+      "cover": "../Published_Content/Muse/Absolution/Muse_Absolution_album_cover.jpg",
+      "albumId": "absolution_album",
+      "audioSrc": "../Published_Content/Muse/Absolution/Muse_Thoughts_of_a_Dying_Atheist.mp3",
+      "position": 14
+    },
+    {
+      "id": "muse_time_is_running_out",
+      "title": "Time Is Running Out",
+      "artist": "Muse",
+      "cover": "../Published_Content/Muse/Absolution/Muse_Absolution_album_cover.jpg",
+      "albumId": "absolution_album",
+      "audioSrc": "../Published_Content/Muse/Absolution/Muse_Time_is_Running_Out.mp3",
+      "position": 15
+    },
+    {
+      "id": "hexagram",
+      "title": "Hexagram",
+      "artist": "Deftones",
+      "cover": "../Published_Content/Deftones/Deftones_Album/Deftones_Deftones_album_cover.jpg",
+      "albumId": "deftones_album",
+      "audioSrc": "../Published_Content/Deftones/Deftones_Album/Deftones_Hexagram.mp3",
+      "position": 1
+    },
+    {
+      "id": "minerva",
+      "title": "Minerva",
+      "artist": "Deftones",
+      "cover": "../Published_Content/Deftones/Deftones_Album/Deftones_Deftones_album_cover.jpg",
+      "albumId": "deftones_album",
+      "audioSrc": "../Published_Content/Deftones/Deftones_Album/Deftones_Minerva.mp3",
+      "position": 2
+    },
+    {
+      "id": "needles_and_pins",
+      "title": "Needles and Pins",
+      "artist": "Deftones",
+      "cover": "../Published_Content/Deftones/Deftones_Album/Deftones_Deftones_album_cover.jpg",
+      "albumId": "deftones_album",
+      "audioSrc": "../Published_Content/Deftones/Deftones_Album/Deftones_Needles_and_Pins.mp3",
+      "position": 3
+    },
+    {
+      "id": "deathblow",
+      "title": "Deathblow",
+      "artist": "Deftones",
+      "cover": "../Published_Content/Deftones/Deftones_Album/Deftones_Deftones_album_cover.jpg",
+      "albumId": "deftones_album",
+      "audioSrc": "../Published_Content/Deftones/Deftones_Album/Deftones_Deathblow.mp3",
+      "position": 4
+    },
+    {
+      "id": "when_girls_telephone_boys",
+      "title": "When Girls Telephone Boys",
+      "artist": "Deftones",
+      "cover": "../Published_Content/Deftones/Deftones_Album/Deftones_Deftones_album_cover.jpg",
+      "albumId": "deftones_album",
+      "audioSrc": "../Published_Content/Deftones/Deftones_Album/Deftones_When_Girls_Telephone_Boys.mp3",
+      "position": 5
+    },
+    {
+      "id": "battle_axe",
+      "title": "Battle-axe",
+      "artist": "Deftones",
+      "cover": "../Published_Content/Deftones/Deftones_Album/Deftones_Deftones_album_cover.jpg",
+      "albumId": "deftones_album",
+      "audioSrc": "../Published_Content/Deftones/Deftones_Album/Deftones_Battle_axe.mp3",
+      "position": 6
+    },
+    {
+      "id": "lucky_you",
+      "title": "Lucky You",
+      "artist": "Deftones",
+      "cover": "../Published_Content/Deftones/Deftones_Album/Deftones_Deftones_album_cover.jpg",
+      "albumId": "deftones_album",
+      "audioSrc": "../Published_Content/Deftones/Deftones_Album/Deftones_Lucky_You.mp3",
+      "position": 7
+    },
+    {
+      "id": "bloody_cape",
+      "title": "Bloody Cape",
+      "artist": "Deftones",
+      "cover": "../Published_Content/Deftones/Deftones_Album/Deftones_Deftones_album_cover.jpg",
+      "albumId": "deftones_album",
+      "audioSrc": "../Published_Content/Deftones/Deftones_Album/Deftones_Bloody_Cape.mp3",
+      "position": 8
+    },
+    {
+      "id": "anniversary_of_an_uninteresting_event",
+      "title": "Anniversary of an Uninteresting Event",
+      "artist": "Deftones",
+      "cover": "../Published_Content/Deftones/Deftones_Album/Deftones_Deftones_album_cover.jpg",
+      "albumId": "deftones_album",
+      "audioSrc": "../Published_Content/Deftones/Deftones_Album/Deftones_Anniversary_of_an_Uninteresting_Event.mp3",
+      "position": 9
+    },
+    {
+      "id": "moana",
+      "title": "Moana",
+      "artist": "Deftones",
+      "cover": "../Published_Content/Deftones/Deftones_Album/Deftones_Deftones_album_cover.jpg",
+      "albumId": "deftones_album",
+      "audioSrc": "../Published_Content/Deftones/Deftones_Album/Deftones_Moana.mp3",
+      "position": 10
+    },
+    {
+      "id": "swerve_city",
+      "title": "Swerve City",
+      "artist": "Deftones",
+      "cover": "../Published_Content/Deftones/Koi_No_Yokan_Album/Deftones_Koi_No_Yokan_album_cover.jpg",
+      "albumId": "koi_no_yokan_album",
+      "audioSrc": "../Published_Content/Deftones/Koi_No_Yokan_Album/Deftones_Swerve_City.mp3",
+      "position": 1
+    },
+    {
+      "id": "romantic_dreams",
+      "title": "Romantic Dreams",
+      "artist": "Deftones",
+      "cover": "../Published_Content/Deftones/Koi_No_Yokan_Album/Deftones_Koi_No_Yokan_album_cover.jpg",
+      "albumId": "koi_no_yokan_album",
+      "audioSrc": "../Published_Content/Deftones/Koi_No_Yokan_Album/Deftones_Romantic_Dreams.mp3",
+      "position": 2
+    },
+    {
+      "id": "leathers",
+      "title": "Leathers",
+      "artist": "Deftones",
+      "cover": "../Published_Content/Deftones/Koi_No_Yokan_Album/Deftones_Koi_No_Yokan_album_cover.jpg",
+      "albumId": "koi_no_yokan_album",
+      "audioSrc": "../Published_Content/Deftones/Koi_No_Yokan_Album/Deftones_Leathers.mp3",
+      "position": 3
+    },
+    {
+      "id": "poltergeist",
+      "title": "Poltergeist",
+      "artist": "Deftones",
+      "cover": "../Published_Content/Deftones/Koi_No_Yokan_Album/Deftones_Koi_No_Yokan_album_cover.jpg",
+      "albumId": "koi_no_yokan_album",
+      "audioSrc": "../Published_Content/Deftones/Koi_No_Yokan_Album/Deftones_Poltergeist.mp3",
+      "position": 4
+    },
+    {
+      "id": "entombed",
+      "title": "Entombed",
+      "artist": "Deftones",
+      "cover": "../Published_Content/Deftones/Koi_No_Yokan_Album/Deftones_Koi_No_Yokan_album_cover.jpg",
+      "albumId": "koi_no_yokan_album",
+      "audioSrc": "../Published_Content/Deftones/Koi_No_Yokan_Album/Deftones_Entombed.mp3",
+      "position": 5
+    },
+    {
+      "id": "graphic_nature",
+      "title": "Graphic Nature",
+      "artist": "Deftones",
+      "cover": "../Published_Content/Deftones/Koi_No_Yokan_Album/Deftones_Koi_No_Yokan_album_cover.jpg",
+      "albumId": "koi_no_yokan_album",
+      "audioSrc": "../Published_Content/Deftones/Koi_No_Yokan_Album/Deftones_Graphic_Nature.mp3",
+      "position": 6
+    },
+    {
+      "id": "tempest",
+      "title": "Tempest",
+      "artist": "Deftones",
+      "cover": "../Published_Content/Deftones/Koi_No_Yokan_Album/Deftones_Koi_No_Yokan_album_cover.jpg",
+      "albumId": "koi_no_yokan_album",
+      "audioSrc": "../Published_Content/Deftones/Koi_No_Yokan_Album/Deftones_Tempest.mp3",
+      "position": 7
+    },
+    {
+      "id": "gauze",
+      "title": "Gauze",
+      "artist": "Deftones",
+      "cover": "../Published_Content/Deftones/Koi_No_Yokan_Album/Deftones_Koi_No_Yokan_album_cover.jpg",
+      "albumId": "koi_no_yokan_album",
+      "audioSrc": "../Published_Content/Deftones/Koi_No_Yokan_Album/Deftones_Gauze.mp3",
+      "position": 8
+    },
+    {
+      "id": "rosemary",
+      "title": "Rosemary",
+      "artist": "Deftones",
+      "cover": "../Published_Content/Deftones/Koi_No_Yokan_Album/Deftones_Koi_No_Yokan_album_cover.jpg",
+      "albumId": "koi_no_yokan_album",
+      "audioSrc": "Published_Content/Deftones/Koi_No_Yokan_Album/Deftones_Rosemary.mp3",
+      "position": 9
+    },
+    {
+      "id": "goon_squad",
+      "title": "Goon Squad",
+      "artist": "Deftones",
+      "cover": "../Published_Content/Deftones/Koi_No_Yokan_Album/Deftones_Koi_No_Yokan_album_cover.jpg",
+      "albumId": "koi_no_yokan_album",
+      "audioSrc": "../Published_Content/Deftones/Koi_No_Yokan_Album/Deftones_Goon_Squad.mp3",
+      "position": 10
+    },
+    {
+      "id": "what_happened_to_you",
+      "title": "What Happened to You?",
+      "artist": "Deftones",
+      "cover": "../Published_Content/Deftones/Koi_No_Yokan_Album/Deftones_Koi_No_Yokan_album_cover.jpg",
+      "albumId": "koi_no_yokan_album",
+      "audioSrc": "../Published_Content/Deftones/Koi_No_Yokan_Album/Deftones_What_Happened_to_You.mp3",
+      "position": 11
+    },
+    {
+      "id": "bmth_and_the_snakes_start_to_sing",
+      "title": "And the Snakes Start to Sing",
+      "artist": "Bring Me the Horizon",
+      "cover": "../Published_Content/Bring_Me_the_Horizon/Sempiternal_Album/Bring_Me_the_Horizon_Sempiternal_album_cover.jpg",
+      "albumId": "Sempiternal_album",
+      "audioSrc": "../Published_Content/Bring_Me_the_Horizon/Sempiternal_Album/Bring_Me_the_Horizon_And_the_Snakes_Start_to_Sing.mp3",
+      "position": 1
+    },
+    {
+      "id": "bmth_antivist",
+      "title": "Antivist",
+      "artist": "Bring Me the Horizon",
+      "cover": "../Published_Content/Bring_Me_the_Horizon/Sempiternal_Album/Bring_Me_the_Horizon_Sempiternal_album_cover.jpg",
+      "albumId": "Sempiternal_album",
+      "audioSrc": "../Published_Content/Bring_Me_the_Horizon/Sempiternal_Album/Bring_Me_the_Horizon_Antivist.mp3",
+      "position": 2
+    },
+    {
+      "id": "bmth_can_you_feel_my_heart",
+      "title": "Can You Feel My Heart",
+      "artist": "Bring Me the Horizon",
+      "cover": "../Published_Content/Bring_Me_the_Horizon/Sempiternal_Album/Bring_Me_the_Horizon_Sempiternal_album_cover.jpg",
+      "albumId": "Sempiternal_album",
+      "audioSrc": "../Published_Content/Bring_Me_the_Horizon/Sempiternal_Album/Bring_Me_the_Horizon_Can_You_Feel_My_Heart.mp3",
+      "position": 3
+    },
+    {
+      "id": "bmth_crooked_young",
+      "title": "Crooked Young",
+      "artist": "Bring Me the Horizon",
+      "cover": "../Published_Content/Bring_Me_the_Horizon/Sempiternal_Album/Bring_Me_the_Horizon_Sempiternal_album_cover.jpg",
+      "albumId": "Sempiternal_album",
+      "audioSrc": "../Published_Content/Bring_Me_the_Horizon/Sempiternal_Album/Bring_Me_the_Horizon_Crooked_Young.mp3",
+      "position": 4
+    },
+    {
+      "id": "bmth_deathbeds",
+      "title": "Deathbeds",
+      "artist": "Bring Me the Horizon",
+      "cover": "../Published_Content/Bring_Me_the_Horizon/Sempiternal_Album/Bring_Me_the_Horizon_Sempiternal_album_cover.jpg",
+      "albumId": "Sempiternal_album",
+      "audioSrc": "../Published_Content/Bring_Me_the_Horizon/Sempiternal_Album/Bring_Me_the_Horizon_Deathbeds.mp3",
+      "position": 5
+    },
+    {
+      "id": "bmth_empire_let_them_sing",
+      "title": "Empire (Let Them Sing)",
+      "artist": "Bring Me the Horizon",
+      "cover": "../Published_Content/Bring_Me_the_Horizon/Sempiternal_Album/Bring_Me_the_Horizon_Sempiternal_album_cover.jpg",
+      "albumId": "Sempiternal_album",
+      "audioSrc": "../Published_Content/Bring_Me_the_Horizon/Sempiternal_Album/Bring_Me_the_Horizon_Empire_Let_Them_Sing.mp3",
+      "position": 6
+    },
+    {
+      "id": "bmth_go_to_hell_for_heavens_sake",
+      "title": "Go to Hell, for Heaven's Sake",
+      "artist": "Bring Me the Horizon",
+      "cover": "../Published_Content/Bring_Me_the_Horizon/Sempiternal_Album/Bring_Me_the_Horizon_Sempiternal_album_cover.jpg",
+      "albumId": "Sempiternal_album",
+      "audioSrc": "../Published_Content/Bring_Me_the_Horizon/Sempiternal_Album/Bring_Me_the_Horizon_Go_to_Hell_for_Heavens_Sake.mp3",
+      "position": 7
+    },
+    {
+      "id": "bmth_hospital_for_souls",
+      "title": "Hospital for Souls",
+      "artist": "Bring Me the Horizon",
+      "cover": "../Published_Content/Bring_Me_the_Horizon/Sempiternal_Album/Bring_Me_the_Horizon_Sempiternal_album_cover.jpg",
+      "albumId": "Sempiternal_album",
+      "audioSrc": "../Published_Content/Bring_Me_the_Horizon/Sempiternal_Album/Bring_Me_the_Horizon_Hospital_for_Souls.mp3",
+      "position": 8
+    },
+    {
+      "id": "bmth_join_the_club",
+      "title": "Join the Club",
+      "artist": "Bring Me the Horizon",
+      "cover": "../Published_Content/Bring_Me_the_Horizon/Sempiternal_Album/Bring_Me_the_Horizon_Sempiternal_album_cover.jpg",
+      "albumId": "Sempiternal_album",
+      "audioSrc": "../Published_Content/Bring_Me_the_Horizon/Sempiternal_Album/Bring_Me_the_Horizon_Join_the_Club.mp3",
+      "position": 9
+    },
+    {
+      "id": "bmth_seen_it_all_before",
+      "title": "Seen It All Before",
+      "artist": "Bring Me the Horizon",
+      "cover": "../Published_Content/Bring_Me_the_Horizon/Sempiternal_Album/Bring_Me_the_Horizon_Sempiternal_album_cover.jpg",
+      "albumId": "Sempiternal_album",
+      "audioSrc": "../Published_Content/Bring_Me_the_Horizon/Sempiternal_Album/Bring_Me_the_Horizon_Seen_It_All_Before.mp3",
+      "position": 10
+    },
+    {
+      "id": "bmth_shadow_moses",
+      "title": "Shadow Moses",
+      "artist": "Bring Me the Horizon",
+      "cover": "../Published_Content/Bring_Me_the_Horizon/Sempiternal_Album/Bring_Me_the_Horizon_Sempiternal_album_cover.jpg",
+      "albumId": "Sempiternal_album",
+      "audioSrc": "../Published_Content/Bring_Me_the_Horizon/Sempiternal_Album/Bring_Me_the_Horizon_Shadow_Moses.mp3",
+      "position": 11
+    },
+    {
+      "id": "bmth_sleepwalking",
+      "title": "Sleepwalking",
+      "artist": "Bring Me the Horizon",
+      "cover": "../Published_Content/Bring_Me_the_Horizon/Sempiternal_Album/Bring_Me_the_Horizon_Sempiternal_album_cover.jpg",
+      "albumId": "Sempiternal_album",
+      "audioSrc": "../Published_Content/Bring_Me_the_Horizon/Sempiternal_Album/Bring_Me_the_Horizon_Sleepwalking.mp3",
+      "position": 12
+    },
+    {
+      "id": "bmth_the_house_of_wolves",
+      "title": "The House of Wolves",
+      "artist": "Bring Me the Horizon",
+      "cover": "../Published_Content/Bring_Me_the_Horizon/Sempiternal_Album/Bring_Me_the_Horizon_Sempiternal_album_cover.jpg",
+      "albumId": "Sempiternal_album",
+      "audioSrc": "../Published_Content/Bring_Me_the_Horizon/Sempiternal_Album/Bring_Me_the_Horizon_The_House_of_Wolves.mp3",
+      "position": 13
+    },
+    {
+  "id": "bmth_code_mistake",
+  "title": "CODE MISTAKE",
+  "artist": "Bring Me the Horizon",
+  "cover": "Published_Content/Bring_Me_the_Horizon/Code_Mistake_Album/Code_Mistake_album_cover.jpg",
+  "albumId": "code_mistake_album",
+  "audioSrc": "Published_Content/Bring_Me_the_Horizon/Code_Mistake_Album/Code_Mistake.mp3",
+  "position": 1
+},
+{
+  "id": "bmth_happier",
+  "title": "Happier",
+  "artist": "Bring Me the Horizon",
+  "cover": "Published_Content/Bring_Me_the_Horizon/Happier_Album/Happier_album_cover.jpg",
+  "albumId": "happier_album",
+  "audioSrc": "Published_Content/Bring_Me_the_Horizon/Happier_Album/Bring_Me_the_Horizon_Happier.mp3",
+  "position": 1
+},
+{
+  "id": "muse_1685",
+  "title": "1685",
+  "artist": "Muse",
+  "cover": "Published_Content\\Muse\\1685\\1685_album_cover.jpg",
+  "albumId": "1685_album",
+  "audioSrc": "Published_Content\\Muse\\1685\\1685.mp3",
+  "position": 1
+},
+{
+  "id": "muse_1685_instrumental",
+  "title": "1685 (Instrumental)",
+  "artist": "Muse",
+  "cover": "Published_Content\\Muse\\1685\\1685_album_cover.jpg",
+  "albumId": "1685_album",
+  "audioSrc": "Published_Content\\Muse\\1685\\1685_Instrumental.mp3",
+  "position": 2
+},
+{
+  "id": "muse_dead_inside",
+  "title": "Dead Inside",
+  "artist": "Muse",
+  "cover": "Published_Content/Muse/Drones/Muse_Drones_album_cover.jpg",
+  "albumId": "drones_album",
+  "audioSrc": "Published_Content/Muse/Drones/Muse_Dead_Inside.mp3",
+  "position": 1
+},
+{
+  "id": "muse_drill_sergeant",
+  "title": "[Drill Sergeant]",
+  "artist": "Muse",
+  "cover": "Published_Content/Muse/Drones/Muse_Drones_album_cover.jpg",
+  "albumId": "drones_album",
+  "audioSrc": "Published_Content/Muse/Drones/Muse_Drill_Sergeant.mp3",
+  "position": 2
+},
+{
+  "id": "muse_psycho",
+  "title": "Psycho",
+  "artist": "Muse",
+  "cover": "Published_Content/Muse/Drones/Muse_Drones_album_cover.jpg",
+  "albumId": "drones_album",
+  "audioSrc": "Published_Content/Muse/Drones/Muse_Psycho.mp3",
+  "position": 3
+},
+{
+  "id": "muse_mercy",
+  "title": "Mercy",
+  "artist": "Muse",
+  "cover": "Published_Content/Muse/Drones/Muse_Drones_album_cover.jpg",
+  "albumId": "drones_album",
+  "audioSrc": "Published_Content/Muse/Drones/Muse_Mercy.mp3",
+  "position": 4
+},
+{
+  "id": "bmth_wonderwall",
+  "title": "WONDERWaLL",
+  "artist": "Bring Me the Horizon",
+  "cover": "Published_Content\\Bring_Me_The_Horizon\\Wonderwall_album\\Wonderwall_album_cover.jpg",
+  "albumId": "drones_album",
+  "audioSrc": "Published_Content\\Bring_Me_The_Horizon\\Wonderwall_album\\Bring_Me_The_Horizon_WONDERWaLL.mp3",
+  "position": 1
+},
+{
+  "id": "muse_reapers",
+  "title": "Reapers",
+  "artist": "Muse",
+  "cover": "Published_Content/Muse/Drones/Muse_Drones_album_cover.jpg",
+  "albumId": "drones_album",
+  "audioSrc": "Published_Content/Muse/Drones/Muse_Reapers.mp3",
+  "position": 5
+},
+{
+  "id": "muse_the_handler",
+  "title": "The Handler",
+  "artist": "Muse",
+  "cover": "Published_Content/Muse/Drones/Muse_Drones_album_cover.jpg",
+  "albumId": "drones_album",
+  "audioSrc": "Published_Content/Muse/Drones/Muse_The_Handler.mp3",
+  "position": 6
+},
+{
+  "id": "muse_jfk",
+  "title": "[JFK]",
+  "artist": "Muse",
+  "cover": "Published_Content/Muse/Drones/Muse_Drones_album_cover.jpg",
+  "albumId": "drones_album",
+  "audioSrc": "Published_Content/Muse/Drones/Muse_JFK.mp3",
+  "position": 7
+},
+{
+  "id": "muse_defector",
+  "title": "Defector",
+  "artist": "Muse",
+  "cover": "Published_Content/Muse/Drones/Muse_Drones_album_cover.jpg",
+  "albumId": "drones_album",
+  "audioSrc": "Published_Content/Muse/Drones/Muse_Defector.mp3",
+  "position": 8
+},
+{
+  "id": "muse_revolt",
+  "title": "Revolt",
+  "artist": "Muse",
+  "cover": "Published_Content/Muse/Drones/Muse_Drones_album_cover.jpg",
+  "albumId": "drones_album",
+  "audioSrc": "Published_Content/Muse/Drones/Muse_Revolt.mp3",
+  "position": 9
+},
+{
+  "id": "muse_aftermath",
+  "title": "Aftermath",
+  "artist": "Muse",
+  "cover": "Published_Content/Muse/Drones/Muse_Drones_album_cover.jpg",
+  "albumId": "drones_album",
+  "audioSrc": "Published_Content/Muse/Drones/Muse_Aftermath.mp3",
+  "position": 10
+},
+{
+  "id": "muse_the_globalist",
+  "title": "The Globalist",
+  "artist": "Muse",
+  "cover": "Published_Content/Muse/Drones/Muse_Drones_album_cover.jpg",
+  "albumId": "drones_album",
+  "audioSrc": "Published_Content/Muse/Drones/Muse_The_Globalist.mp3",
+  "position": 11
+},
+{
+  "id": "muse_drones",
+  "title": "Drones",
+  "artist": "Muse",
+  "cover": "Published_Content/Muse/Drones/Muse_Drones_album_cover.jpg",
+  "albumId": "drones_album",
+  "audioSrc": "Published_Content/Muse/Drones/Muse_Drones.mp3",
+  "position": 12
+}
+  ],
+  "albums": [
+    {
+  "id": "code_mistake_album",
+  "title": "CODE MISTAKE",
+  "artist": "Bring Me the Horizon",
+  "cover": "Published_Content/Bring_Me_the_Horizon/Code_Mistake_Album/Code_Mistake_album_cover.jpg",
+  "year": 2024,
+  "tracks": [
+    "bmth_code_mistake"
+  ]
+},
+{
+  "id": "happier_album",
+  "title": "Happier",
+  "artist": "Bring Me the Horizon",
+  "cover": "Published_Content/Bring_Me_the_Horizon/Happier_Album/Happier_album_cover.jpg",
+  "year": 2024,
+  "tracks": [
+    "bmth_happier"
+  ]
+},
+{
+  "id": "1685_album",
+  "title": "1685",
+  "artist": "Muse",
+  "cover": "Published_Content\\Muse\\1685\\1685_album_cover.jpg",
+  "year": 2024,
+  "tracks": [
+    "muse_1685",
+    "muse_1685_instrumental"
+  ]
+},
+{
+  "id": "wonderwall_album",
+  "title": "WONDERWaLL",
+  "artist": "Bring Me the Horizon",
+  "cover": "Published_Content\\Bring_Me_The_Horizon\\Wonderwall_album\\Wonderwall_album_cover.jpg",
+  "year": 2024,
+  "tracks": [
+    "bmth_wonderwall"
+  ]
+},
+{
+  "id": "drones_album",
+  "title": "Drones",
+  "artist": "Muse",
+  "cover": "Published_Content/Muse/Drones/Muse_Drones_album_cover.jpg",
+  "year": 2015,
+  "tracks": [
+    "muse_dead_inside",
+    "muse_drill_sergeant",
+    "muse_psycho",
+    "muse_mercy",
+    "muse_reapers",
+    "muse_the_handler",
+    "muse_jfk",
+    "muse_defector",
+    "muse_revolt",
+    "muse_aftermath",
+    "muse_the_globalist",
+    "muse_drones"
+  ]
+},
+    
+    {
+      "id": "absolution_album",
+      "title": "Absolution",
+      "artist": "Muse",
+      "cover": "../Published_Content/Muse/Absolution/Muse_Absolution_album_cover.jpg",
+      "year": 2003,
+      "tracks": [
+        "muse_apocalypse_please",
+        "muse_blackout",
+        "muse_butterflies_and_hurricanes",
+        "muse_endlessly",
+        "muse_falling_away_with_you",
+        "muse_fury",
+        "muse_hysteria",
+        "muse_interlude",
+        "muse_intro",
+        "muse_ruled_by_secrecy",
+        "muse_sing_for_absolution",
+        "muse_stockholm_syndrome",
+        "muse_the_small_print",
+        "muse_thoughts_of_a_dying_atheist",
+        "muse_time_is_running_out"
+      ]
+    },
+    {
+      "id": "Sempiternal_album",
+      "title": "Sempiternal",
+      "artist": "Bring Me the Horizon",
+      "cover": "Published_Content/Bring_Me_the_Horizon/Sempiternal_Album/Bring_Me_the_Horizon_Sempiternal_album_cover.jpg",
+      "year": 2013,
+      "tracks": [
+        "bmth_and_the_snakes_start_to_sing",
+        "bmth_antivist",
+        "bmth_can_you_feel_my_heart",
+        "bmth_crooked_young",
+        "bmth_deathbeds",
+        "bmth_empire_let_them_sing",
+        "bmth_go_to_hell_for_heavens_sake",
+        "bmth_hospital_for_souls",
+        "bmth_join_the_club",
+        "bmth_seen_it_all_before",
+        "bmth_shadow_moses",
+        "bmth_sleepwalking",
+        "bmth_the_house_of_wolves"
+      ]
+    },
+    {
+      "id": "deftones_album",
+      "title": "Deftones",
+      "artist": "Deftones",
+      "cover": "Published_Content/Deftones/Deftones_Album/Deftones_Deftones_album_cover.jpg",
+      "year": 2003,
+      "tracks": [
+        "hexagram",
+        "minerva",
+        "needles_and_pins",
+        "deathblow",
+        "when_girls_telephone_boys",
+        "battle_axe",
+        "lucky_you",
+        "bloody_cape",
+        "anniversary_of_an_uninteresting_event",
+        "moana"
+      ]
+    },
+    {
+      "id": "koi_no_yokan_album",
+      "title": "Koi No Yokan",
+      "artist": "Deftones",
+      "cover": "../Published_Content/Deftones/Koi_No_Yokan_Album/Deftones_Koi_No_Yokan_album_cover.jpg",
+      "year": 2012,
+      "tracks": [
+        "swerve_city",
+        "romantic_dreams",
+        "leathers",
+        "poltergeist",
+        "entombed",
+        "graphic_nature",
+        "tempest",
+        "gauze",
+        "rosemary",
+        "goon_squad",
+        "what_happened_to_you"
+      ]
+    }
+  ],
+  "artists": [
+  {
+    "name": "Deftones",
+    "id": "deftones_artist",
+    "avatar": "Published_Content/Deftones/UI/deftones_avatar.jpg",
+    "albums": [
+      "koi_no_yokan_album",
+      "deftones_album"
+    ],
+    "banner": "Published_Content\\Deftones\\UI\\Deftones_gif_from_site.gif",
+    "logo": "Published_Content/Deftones/UI/deftones_logo1.png"
+  },
+  {
+    "name": "Bring Me The Horizon",
+    "id": "bmth_artist",
+    "avatar": "Published_Content/Bring_Me_the_horizon/UI/bmth_avatar.jpg",
+    "albums": [
+      "Sempiternal_album",
+      "code_mistake_album",
+      "happier_album",
+      "wonderwall_album"
+    ],
+    "banner": "Published_Content\\Bring_Me_The_Horizon\\UI\\BMTH_gif_from_site.gif",
+    "logo": "Published_Content/Bring_Me_the_Horizon/UI/bmth_logo.png"
+  },
+  {
+    "name": "Muse",
+    "id": "muse_artist",
+    "avatar": "Published_Content/Muse/UI/muse_avatar.jpg",
+    "albums": [
+      "absolution_album",
+      "drones_album",
+      "1685_album"
+    ],
+    "banner": "Published_Content\\Muse\\UI\\muse_banner.gif"
+  }
+],
+  "ui": [
+  {
+    "id": "logo_and_title",
+    "type": "image",
+    "src": "../UI/Logo_and_title.png",
+    "description": "Логотип з назвою"
+  },
+  {
+    "id": "logo_only",
+    "type": "image",
+    "src": "../UI/Logo_only.png",
+    "description": "Тільки логотип"
+  },
+  {
+    "id": "note_title",
+    "type": "image",
+    "src": "../UI/Note_title.png",
+    "description": "Заголовок нотатки"
+  }
+]
+
+}
